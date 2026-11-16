@@ -83,6 +83,21 @@ td{padding:9px 0;border-bottom:1px solid var(--linea)}
 td:last-child{text-align:right;font-weight:bold}
 footer{background:var(--negro);color:var(--pie);padding:28px 0;font-size:14px;text-align:center}
 footer a{color:var(--dorado2)}
+
+.galeria{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.galeria figure{border-radius:var(--radio);overflow:hidden;background:var(--negro)}
+.galeria img{width:100%;height:250px;object-fit:cover;transition:transform .3s ease,opacity .3s ease}
+.galeria figure:hover img{transform:scale(1.03)}
+.galeria figcaption{color:var(--crema);padding:12px 16px;font-size:15px}
+.galeria figcaption strong{color:var(--dorado2)}
+.banner-eventos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.banner{border:2px solid var(--dorado);border-radius:var(--radio);padding:var(--espacio-tarjeta);background:var(--negro2);color:var(--crema)}
+.banner .cuando{color:var(--dorado2);font-weight:bold;letter-spacing:1px;font-size:14px}
+.banner h3{font-family:var(--fuente-titulo);font-size:23px;margin:6px 0 8px;color:#fff}
+nav.menu{display:flex;gap:18px}
+nav.menu a{color:var(--crema);text-decoration:none;font-size:15px;font-weight:bold}
+nav.menu a:hover{color:var(--dorado2)}
+@media (max-width:760px){.galeria,.banner-eventos{grid-template-columns:1fr}nav.menu{display:none}}
 @media (max-width:760px){
   .hero img.fondo{height:480px}
   .hero h1{font-size:34px}
@@ -103,6 +118,12 @@ footer a{color:var(--dorado2)}
       <span class="marca-num">809</span>
       <span class="marca-nombre">809 Lounge<small>RESTAURANT &amp; GRILL · TAMPA</small></span>
     </a>
+    <nav class="menu">
+      <a href="#menu" data-es="Menú" data-en="Menu">Menú</a>
+      <a href="#eventos" data-es="Eventos" data-en="Events">Eventos</a>
+      <a href="#galeria" data-es="Galería" data-en="Gallery">Galería</a>
+      <a href="#visitanos" data-es="Visítanos" data-en="Visit us">Visítanos</a>
+    </nav>
     <div class="acciones-cab">
       <button class="btn btn-idioma" id="btn-idioma" onclick="toggleLang()">EN</button>
       <a class="btn btn-dorado" href="tel:+18132845300" data-es="Llamar" data-en="Call">Llamar</a>
@@ -157,7 +178,32 @@ footer a{color:var(--dorado2)}
   </div>
 </section>
 
-<section class="oscura">
+
+<section id="eventos" style="padding-top:0">
+  <div class="contenedor">
+    <h2 data-es="Banners de la casa: así se mueve el 809" data-en="House banners: how 809 moves">Banners de la casa: así se mueve el 809</h2>
+    <p class="sub" data-es="Sus noches ya tienen nombre y público. Esto es lo que un cliente encuentra cada semana, según las promos y carteleras del propio negocio." data-en="Its nights already have a name and a crowd. This is what a guest finds every week, from the business's own promos and listings.">Sus noches ya tienen nombre y público. Esto es lo que un cliente encuentra cada semana, según las promos y carteleras del propio negocio.</p>
+    <div class="banner-eventos">
+      <div class="banner">
+        <div class="cuando" data-es="JUEVES Y VIERNES · NOCHE" data-en="THURSDAY &amp; FRIDAY · NIGHT">JUEVES Y VIERNES · NOCHE</div>
+        <h3>Ladies Night</h3>
+        <p data-es="Ellas no pagan entrada y su primer cóctel va por la casa. DJ en vivo, deportes en pantalla y especiales de comida y barra." data-en="Ladies get in free and their first cocktail is on the house. Live DJ, sports on screen and food and bar specials.">Ellas no pagan entrada y su primer cóctel va por la casa. DJ en vivo, deportes en pantalla y especiales de comida y barra.</p>
+      </div>
+      <div class="banner">
+        <div class="cuando" data-es="PRIMER DOMINGO DEL MES · 3–7 PM" data-en="FIRST SUNDAY OF THE MONTH · 3–7 PM">PRIMER DOMINGO DEL MES · 3–7 PM</div>
+        <h3>Classic Salsa Sundays</h3>
+        <p data-es="Clases de salsa, comida y fiesta para toda la familia latina de Tampa. La tarde cultural del 809." data-en="Salsa lessons, food and party for Tampa's Latino families. 809's cultural afternoon.">Clases de salsa, comida y fiesta para toda la familia latina de Tampa. La tarde cultural del 809.</p>
+      </div>
+      <div class="banner">
+        <div class="cuando" data-es="FECHAS ESPECIALES · EN VIVO" data-en="SPECIAL DATES · LIVE">FECHAS ESPECIALES · EN VIVO</div>
+        <h3 data-es="Bachata y conciertos" data-en="Bachata &amp; concerts">Bachata y conciertos</h3>
+        <p data-es="La fiesta de bachata más grande de Tampa y conciertos con artistas invitados. Próxima cartelera: pregúntanos al llamar." data-en="Tampa's biggest bachata party and concerts with guest artists. Upcoming lineup: ask us when you call.">La fiesta de bachata más grande de Tampa y conciertos con artistas invitados. Próxima cartelera: pregúntanos al llamar.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="oscura" id="menu">
   <div class="contenedor">
     <h2 data-es="Menú destacado: los mofongos" data-en="Featured menu: the mofongos">Menú destacado: los mofongos</h2>
     <p class="sub" data-es="La especialidad dominicana de la casa. Menú completo de comida, deli, brunch y barra disponible al ordenar." data-en="The house Dominican specialty. Full food, deli, brunch and bar menu available when you order.">La especialidad dominicana de la casa. Menú completo de comida, deli, brunch y barra disponible al ordenar.</p>
@@ -175,9 +221,24 @@ footer a{color:var(--dorado2)}
   </div>
 </section>
 
+
 <section>
   <div class="contenedor doscol">
-    <img src="imgs/foto2.webp" width="1200" height="675" loading="lazy" alt="Ambiente nocturno dentro de 809 Lounge, con luces, música y clientes celebrando">
+    <div>
+      <h2 data-es="De día: supermercado latino y deli" data-en="By day: Latin supermarket &amp; deli">De día: supermercado latino y deli</h2>
+      <p class="sub" data-es="En el mismo local vive El 809 Supermarket: productos latinos y caribeños, deli con almuerzos, sopas, sándwiches y desayunos para llevar o comer ahí." data-en="Under the same roof lives El 809 Supermarket: Latin and Caribbean groceries, plus a deli with lunches, soups, sandwiches and breakfasts to go or to stay.">En el mismo local vive El 809 Supermarket: productos latinos y caribeños, deli con almuerzos, sopas, sándwiches y desayunos para llevar o comer ahí.</p>
+      <ul class="lista">
+        <li data-es="Almuerzos del deli desde $13.00 US$" data-en="Deli lunches from $13.00">Almuerzos del deli desde $13.00 US$</li>
+        <li data-es="Desayunos, café caliente y postres" data-en="Breakfasts, hot coffee and desserts">Desayunos, café caliente y postres</li>
+        <li data-es="El mandado latino completo, sin salir del 809" data-en="Your full Latin grocery run, without leaving 809">El mandado latino completo, sin salir del 809</li>
+      </ul>
+    </div>
+    <img src="imgs/mercado.webp" width="1000" height="563" loading="lazy" alt="Interior de El 809 Supermarket, con productos latinos, frutas y bebidas">
+  </div>
+</section>
+
+<section>
+  <div class="contenedor doscol">
     <div>
       <h2 data-es="Más que un restaurante: el lounge" data-en="More than a restaurant: the lounge">Más que un restaurante: el lounge</h2>
       <p class="sub" data-es="Dos ambientes, escenario para música en vivo y espacio para tus celebraciones, con capacidad para 100 personas." data-en="Two areas, a stage for live music and room for your celebrations, with capacity for 100 guests.">Dos ambientes, escenario para música en vivo y espacio para tus celebraciones, con capacidad para 100 personas.</p>
@@ -189,6 +250,20 @@ footer a{color:var(--dorado2)}
         <li data-es="Deportes en pantalla: fútbol americano, fútbol y más" data-en="Sports on screen: football, soccer and more">Deportes en pantalla: fútbol americano, fútbol y más</li>
       </ul>
       <p style="margin-top:20px"><a class="btn btn-oscuro" href="tel:+18132845300" data-es="Reservar tu fecha: (813) 284-5300" data-en="Book your date: (813) 284-5300">Reservar tu fecha: (813) 284-5300</a></p>
+    </div>
+  </div>
+</section>
+
+
+<section id="galeria" style="padding-top:0">
+  <div class="contenedor">
+    <h2 data-es="Galería real del 809" data-en="Real 809 gallery">Galería real del 809</h2>
+    <p class="sub" data-es="Fotos reales del local publicadas en línea: sin montajes, así se ve por dentro." data-en="Real photos of the venue published online: no staging, this is how it looks inside.">Fotos reales del local publicadas en línea: sin montajes, así se ve por dentro.</p>
+    <div class="galeria">
+      <figure><img src="imgs/lounge.webp" width="1200" height="904" loading="lazy" alt="Zona lounge VIP del 809 con luces azules, pantallas y el logo 809 en los asientos"><figcaption><strong data-es="El lounge VIP" data-en="The VIP lounge">El lounge VIP</strong> · <span data-es="luces, pantallas y bottle service" data-en="lights, screens and bottle service">luces, pantallas y bottle service</span></figcaption></figure>
+      <figure><img src="imgs/billar.webp" width="1200" height="675" loading="lazy" alt="Mesas de billar de paño rojo dentro del 809 Lounge"><figcaption><strong data-es="El billar" data-en="Pool tables">El billar</strong> · <span data-es="mesas de paño rojo para jugar entre amigos" data-en="red-felt tables to play with friends">mesas de paño rojo para jugar entre amigos</span></figcaption></figure>
+      <figure><img src="imgs/barra.webp" style="object-position:center 22%" width="904" height="1200" loading="lazy" alt="Cerveza dominicana República servida en la barra del 809"><figcaption><strong data-es="La barra" data-en="The bar">La barra</strong> · <span data-es="cerveza dominicana bien fría" data-en="ice-cold Dominican beer">cerveza dominicana bien fría</span></figcaption></figure>
+      <figure><img src="imgs/foto2.webp" width="1200" height="675" loading="lazy" alt="Noche de fiesta llena en el 809, con luces de colores y música en vivo"><figcaption><strong data-es="La fiesta" data-en="The party">La fiesta</strong> · <span data-es="así se llenan sus noches de evento" data-en="this is how its event nights fill up">así se llenan sus noches de evento</span></figcaption></figure>
     </div>
   </div>
 </section>
@@ -205,7 +280,7 @@ footer a{color:var(--dorado2)}
   </div>
 </section>
 
-<section class="oscura">
+<section class="oscura" id="visitanos">
   <div class="contenedor doscol">
     <div>
       <h2 data-es="Visítanos" data-en="Visit us">Visítanos</h2>
