@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>809 Lounge Restaurant &amp; Grill — Tampa, FL</title>
+<meta name="description" content="809 Lounge en Tampa: cocina dominicana, mofongo, música en vivo, DJ, billar y hookah. 3710 W Waters Ave, Tampa, FL 33614 · (813) 284-5300">
+<link rel="canonical" href="https://lmanzano86-ui.github.io/demo-809-lounge/">
+<meta name="theme-color" content="#0e0d0b">
+<link rel="icon" href="https://lmanzano86-ui.github.io/demo-809-lounge/imgs/foto1.webp" type="image/webp">
+<meta property="og:title" content="809 Lounge Restaurant & Grill — Tampa, FL">
+<meta property="og:description" content="Cocina dominicana y latina, mofongo, música en vivo, DJ, billar, hookah y eventos en Waters Ave, Tampa.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://lmanzano86-ui.github.io/demo-809-lounge/imgs/foto1.webp">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+:root{
+  --negro:#0e0d0b; --negro2:#171410; --crema:#f6efe3; --papel:#fffaf0;
+  --dorado:#c9a24b; --dorado2:#e8c877; --vino:#7a1f2b; --texto:#262019; --suave:#6f6455;
+  --fuente-titulo:Georgia,'Times New Roman',serif; --fuente:Arial,Helvetica,sans-serif;
+  --espacio-seccion:64px; --espacio-bloque:32px; --espacio-tarjeta:20px; --espacio-control:12px;
+  --radio:14px; --blanco:#fffef9; --linea:#e7dcc4; --linea2:#cbbd97; --suave2:#cfc4ab; --pie:#bdb096;
+}
+:focus-visible{outline:3px solid var(--dorado);outline-offset:2px}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{overflow-x:clip}
+body{font-family:var(--fuente);color:var(--texto);background:var(--papel);line-height:1.55}
+img{max-width:100%;display:block}
+h1,h2{font-family:var(--fuente-titulo);text-wrap:balance;overflow-wrap:break-word;min-width:0;line-height:1.12}
+a{color:inherit}
+.contenedor{max-width:1060px;margin:0 auto;padding:0 20px}
+header{position:sticky;top:0;z-index:20;background:var(--negro);color:var(--crema);border-bottom:3px solid var(--dorado)}
+.cabecera{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 0}
+.marca{display:flex;align-items:center;gap:12px;text-decoration:none}
+.marca-num{font-family:var(--fuente-titulo);font-size:34px;font-weight:bold;color:var(--dorado2);border:2px solid var(--dorado);border-radius:50%;width:58px;height:58px;display:flex;align-items:center;justify-content:center;flex:none}
+.marca-nombre{font-family:var(--fuente-titulo);font-size:19px;line-height:1.15}
+.marca-nombre small{display:block;font-family:var(--fuente);font-size:11px;letter-spacing:2px;color:var(--dorado2)}
+.acciones-cab{display:flex;gap:8px;align-items:center;flex:none}
+.btn{display:inline-block;text-decoration:none;font-weight:bold;border-radius:999px;padding:12px 22px;font-size:16px;transition:transform .18s ease,opacity .18s ease}
+.btn:active{transform:scale(.98)}
+.btn-dorado{background:var(--dorado);color:var(--negro)}
+.btn-oscuro{background:var(--negro);color:var(--crema);border:1px solid var(--negro)}
+.btn-borde{border:2px solid var(--crema);color:var(--crema);background:rgba(0,0,0,.25)}
+.btn-claro{border:2px solid var(--negro);color:var(--negro)}
+.btn-idioma{background:transparent;color:var(--dorado2);border:1px solid var(--dorado);padding:8px 14px;cursor:pointer;font-size:14px}
+.hero{position:relative;background:var(--negro);color:var(--crema)}
+.hero img.fondo{width:100%;height:520px;object-fit:cover;object-position:center 38%}
+.hero-texto{position:absolute;inset:0;display:flex;align-items:flex-end;background:linear-gradient(to top,rgba(0,0,0,.42),rgba(0,0,0,0) 55%)}
+.hero-caja{padding:0 0 34px}
+.etiqueta{letter-spacing:3px;font-size:12px;font-weight:bold;color:var(--dorado2);text-shadow:0 1px 6px rgba(0,0,0,.8)}
+.hero h1{font-size:44px;color:var(--blanco);text-shadow:0 2px 10px rgba(0,0,0,.85);max-width:640px;margin:8px 0 10px}
+.hero p{font-size:19px;max-width:560px;text-shadow:0 1px 8px rgba(0,0,0,.9);margin-bottom:20px}
+.hero-botones{display:flex;gap:10px;flex-wrap:wrap}
+.banda{background:var(--negro2);color:var(--crema);border-bottom:4px solid var(--dorado)}
+.banda-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;padding:18px 0;text-align:center;font-size:15px}
+.banda-grid strong{color:var(--dorado2);display:block;font-size:13px;letter-spacing:2px;margin-bottom:2px}
+section{padding:var(--espacio-seccion) 0}
+h2{font-size:32px;margin-bottom:8px}
+.sub{color:var(--suave);font-size:17px;margin-bottom:var(--espacio-bloque);max-width:640px}
+.tarjetas{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.tarjeta{background:var(--blanco);border:1px solid var(--linea);border-top:5px solid var(--dorado);border-radius:var(--radio);padding:var(--espacio-tarjeta)}
+.tarjeta h3{font-size:20px;margin-bottom:6px}
+.tarjeta .hora{color:var(--vino);font-weight:bold;font-size:15px;margin-bottom:6px}
+.oscura{background:var(--negro);color:var(--crema)}
+.oscura .sub{color:var(--suave2)}
+.menu-lista{display:grid;grid-template-columns:1fr 1fr;gap:14px 40px;margin-bottom:var(--espacio-bloque)}
+.plato{display:flex;justify-content:space-between;gap:16px;border-bottom:1px dashed var(--linea2);padding:10px 0}
+.plato strong{font-size:17px}
+.plato span{color:var(--suave);display:block;font-size:14px}
+.precio{font-family:var(--fuente-titulo);font-weight:bold;font-size:19px;color:var(--vino);white-space:nowrap}
+.nota{font-size:13px;color:var(--suave);margin-top:14px}
+.doscol{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:32px;align-items:center}
+.doscol img{border-radius:var(--radio);height:340px;width:100%;object-fit:cover}
+.lista{list-style:none;display:grid;gap:12px;font-size:17px}
+.lista li{padding-left:26px;position:relative}
+.lista li::before{content:"◆";position:absolute;left:0;color:var(--dorado);font-size:13px;top:4px}
+.resenas{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.resena{background:var(--crema);border-radius:var(--radio);padding:var(--espacio-tarjeta);font-size:15px}
+.resena .estrellas{color:var(--dorado);letter-spacing:2px;margin-bottom:8px}
+.resena strong{display:block;margin-top:10px}
+table{width:100%;border-collapse:collapse;font-size:16px}
+td{padding:9px 0;border-bottom:1px solid var(--linea)}
+td:last-child{text-align:right;font-weight:bold}
+footer{background:var(--negro);color:var(--pie);padding:28px 0;font-size:14px;text-align:center}
+footer a{color:var(--dorado2)}
+@media (max-width:760px){
+  .hero img.fondo{height:480px}
+  .hero h1{font-size:34px}
+  .tarjetas,.resenas,.banda-grid,.doscol,.menu-lista{grid-template-columns:1fr}
+  :root{--espacio-seccion:48px}
+  .marca-nombre{font-size:16px}
+}
+@media (prefers-reduced-motion:reduce){.btn{transition:none}}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Restaurant","name":"809 Lounge Restaurant & Grill","servesCuisine":["Dominican","Latin American"],"telephone":"+1-813-284-5300","address":{"@type":"PostalAddress","streetAddress":"3710 W Waters Ave","addressLocality":"Tampa","addressRegion":"FL","postalCode":"33614","addressCountry":"US"},"priceRange":"$$","url":"https://lmanzano86-ui.github.io/demo-809-lounge/"}
+</script>
+</head>
+<body>
+<header>
+  <div class="contenedor cabecera">
+    <a class="marca" href="#">
+      <span class="marca-num">809</span>
+      <span class="marca-nombre">809 Lounge<small>RESTAURANT &amp; GRILL · TAMPA</small></span>
+    </a>
+    <div class="acciones-cab">
+      <button class="btn btn-idioma" id="btn-idioma" onclick="toggleLang()">EN</button>
+      <a class="btn btn-dorado" href="tel:+18132845300" data-es="Llamar" data-en="Call">Llamar</a>
+    </div>
+  </div>
+</header>
+
+<div class="hero">
+  <img class="fondo" src="https://lmanzano86-ui.github.io/demo-809-lounge/imgs/foto1.webp" width="900" height="1200" alt="Exterior de 809 Lounge Restaurant & Grill en Tampa al atardecer, con palmeras y su letrero 809">
+  <div class="hero-texto">
+    <div class="contenedor hero-caja">
+      <div class="etiqueta" data-es="COCINA DOMINICANA Y LATINA · TAMPA" data-en="DOMINICAN &amp; LATIN KITCHEN · TAMPA">COCINA DOMINICANA Y LATINA · TAMPA</div>
+      <h1 data-es="El sabor dominicano y la fiesta, en un solo lugar" data-en="Dominican flavor and the party, in one place">El sabor dominicano y la fiesta, en un solo lugar</h1>
+      <p data-es="Mofongo, desayuno y almuerzo express, música en vivo, DJ, billar y hookah — de día restaurante, de noche el lounge de Waters Ave." data-en="Mofongo, express breakfast and lunch, live music, DJs, pool tables and hookah — a restaurant by day, Waters Ave's lounge by night.">Mofongo, desayuno y almuerzo express, música en vivo, DJ, billar y hookah — de día restaurante, de noche el lounge de Waters Ave.</p>
+      <div class="hero-botones">
+        <a class="btn btn-dorado" href="https://toast.app/r/809-lounge-restaurant-grill-3710-west-waters-avenue/order" target="_blank" rel="noopener" data-es="Ordenar en línea" data-en="Order online">Ordenar en línea</a>
+        <a class="btn btn-borde" href="https://www.google.com/maps/search/?api=1&amp;query=809+Lounge+Restaurant+%26+Grill+3710+W+Waters+Ave+Tampa+FL+33614" target="_blank" rel="noopener" data-es="Cómo llegar" data-en="Get directions">Cómo llegar</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="banda">
+  <div class="contenedor banda-grid">
+    <div><strong data-es="DIRECCIÓN" data-en="ADDRESS">DIRECCIÓN</strong>3710 W Waters Ave, Tampa, FL 33614</div>
+    <div><strong data-es="TELÉFONO" data-en="PHONE">TELÉFONO</strong>(813) 284-5300</div>
+    <div><strong data-es="FIN DE SEMANA" data-en="WEEKEND">FIN DE SEMANA</strong><span data-es="Vie y sáb hasta las 2:00 AM" data-en="Fri &amp; Sat until 2:00 AM">Vie y sáb hasta las 2:00 AM</span></div>
+  </div>
+</div>
+
+<section>
+  <div class="contenedor">
+    <h2 data-es="Especiales de la casa" data-en="House specials">Especiales de la casa</h2>
+    <p class="sub" data-es="Lo que mueve al 809 todos los días: comer rápido y bien entre semana, y celebrar en grande el fin de semana." data-en="What keeps 809 moving every day: eating fast and well on weekdays, and celebrating big on weekends.">Lo que mueve al 809 todos los días: comer rápido y bien entre semana, y celebrar en grande el fin de semana.</p>
+    <div class="tarjetas">
+      <div class="tarjeta">
+        <h3 data-es="Desayuno Express" data-en="Express Breakfast">Desayuno Express</h3>
+        <div class="hora">8:00 AM – 11:00 AM</div>
+        <p data-es="Café con leche, avena, tostadas y desayuno dominicano para empezar el día como en casa." data-en="Café con leche, oatmeal, toast and Dominican breakfast to start the day like home.">Café con leche, avena, tostadas y desayuno dominicano para empezar el día como en casa.</p>
+      </div>
+      <div class="tarjeta">
+        <h3 data-es="Almuerzo Express" data-en="Express Lunch">Almuerzo Express</h3>
+        <div class="hora">11:00 AM – 5:00 PM</div>
+        <p data-es="El almuerzo del día, con el sabor de casa, también para llevar y por Uber Eats." data-en="The lunch of the day, with homemade flavor, also to go and on Uber Eats.">El almuerzo del día, con el sabor de casa, también para llevar y por Uber Eats.</p>
+      </div>
+      <div class="tarjeta">
+        <h3 data-es="Noches 809" data-en="809 Nights">Noches 809</h3>
+        <div class="hora" data-es="Jue a sáb · desde las 9:00 PM" data-en="Thu to Sat · from 9:00 PM">Jue a sáb · desde las 9:00 PM</div>
+        <p data-es="Ladies Night, DJ en vivo, especiales de barra y bottle service. Mayores de 21 con identificación." data-en="Ladies Night, live DJs, bar specials and bottle service. 21+ with ID.">Ladies Night, DJ en vivo, especiales de barra y bottle service. Mayores de 21 con identificación.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="oscura">
+  <div class="contenedor">
+    <h2 data-es="Menú destacado: los mofongos" data-en="Featured menu: the mofongos">Menú destacado: los mofongos</h2>
+    <p class="sub" data-es="La especialidad dominicana de la casa. Menú completo de comida, deli, brunch y barra disponible al ordenar." data-en="The house Dominican specialty. Full food, deli, brunch and bar menu available when you order.">La especialidad dominicana de la casa. Menú completo de comida, deli, brunch y barra disponible al ordenar.</p>
+    <div class="menu-lista">
+      <div class="plato"><div><strong>Mofongo + Churrasco</strong><span data-es="El favorito de la casa" data-en="The house favorite">El favorito de la casa</span></div><div class="precio">$35.00</div></div>
+      <div class="plato"><div><strong>Mofongo + Camarones</strong><span data-es="Camarones al estilo 809" data-en="Shrimp, 809 style">Camarones al estilo 809</span></div><div class="precio">$28.00</div></div>
+      <div class="plato"><div><strong>Mofongo + Chicharrón de Pollo</strong><span data-es="Pollo crujiente, sabor de casa" data-en="Crispy chicken, homemade flavor">Pollo crujiente, sabor de casa</span></div><div class="precio">$25.00</div></div>
+      <div class="plato"><div><strong>Mofongo + Masita de Cerdo</strong><span data-es="Cerdo frito tradicional" data-en="Traditional fried pork">Cerdo frito tradicional</span></div><div class="precio">$22.00</div></div>
+      <div class="plato"><div><strong>Mofongo solo</strong><span data-es="Sin acompañante" data-en="No side protein">Sin acompañante</span></div><div class="precio">$14.00</div></div>
+      <div class="plato"><div><strong>Mondongo</strong><span data-es="Sopa tradicional dominicana" data-en="Traditional Dominican soup">Sopa tradicional dominicana</span></div><div class="precio">$15.99</div></div>
+    </div>
+    <a class="btn btn-dorado" href="https://toast.app/r/809-lounge-restaurant-grill-3710-west-waters-avenue/order" target="_blank" rel="noopener" data-es="Ver menú completo y ordenar" data-en="See full menu &amp; order">Ver menú completo y ordenar</a>
+    <a class="btn btn-borde" href="https://www.ubereats.com/store/809-restaurant-lounge-3712-west-waters-avenue/iQWlh7s1XO6EgA9EOOHfWw" target="_blank" rel="noopener">Uber Eats</a>
+    <p class="nota" data-es="Precios verificados en los canales en línea del negocio el 16 de noviembre de 2026. Confirmar disponibilidad y precios al ordenar." data-en="Prices verified on the business's online channels on November 16, 2026. Confirm availability and prices when ordering.">Precios verificados en los canales en línea del negocio el 16 de noviembre de 2026. Confirmar disponibilidad y precios al ordenar.</p>
+  </div>
+</section>
+
+<section>
+  <div class="contenedor doscol">
+    <img src="imgs/foto2.webp" width="1200" height="675" loading="lazy" alt="Ambiente nocturno dentro de 809 Lounge, con luces, música y clientes celebrando">
+    <div>
+      <h2 data-es="Más que un restaurante: el lounge" data-en="More than a restaurant: the lounge">Más que un restaurante: el lounge</h2>
+      <p class="sub" data-es="Dos ambientes, escenario para música en vivo y espacio para tus celebraciones, con capacidad para 100 personas." data-en="Two areas, a stage for live music and room for your celebrations, with capacity for 100 guests.">Dos ambientes, escenario para música en vivo y espacio para tus celebraciones, con capacidad para 100 personas.</p>
+      <ul class="lista">
+        <li data-es="Música en vivo, DJ y noches de salsa, bachata y merengue" data-en="Live music, DJs and salsa, bachata and merengue nights">Música en vivo, DJ y noches de salsa, bachata y merengue</li>
+        <li data-es="Mesas de billar y dominó entre amigos" data-en="Pool tables and dominoes with friends">Mesas de billar y dominó entre amigos</li>
+        <li data-es="Hookah y bottle service para tu grupo" data-en="Hookah and bottle service for your group">Hookah y bottle service para tu grupo</li>
+        <li data-es="Cumpleaños y eventos privados — paquete de cumpleaños en el menú" data-en="Birthdays and private events — birthday package on the menu">Cumpleaños y eventos privados — paquete de cumpleaños en el menú</li>
+        <li data-es="Deportes en pantalla: fútbol americano, fútbol y más" data-en="Sports on screen: football, soccer and more">Deportes en pantalla: fútbol americano, fútbol y más</li>
+      </ul>
+      <p style="margin-top:20px"><a class="btn btn-oscuro" href="tel:+18132845300" data-es="Reservar tu fecha: (813) 284-5300" data-en="Book your date: (813) 284-5300">Reservar tu fecha: (813) 284-5300</a></p>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="contenedor">
+    <h2 data-es="Lo que dicen los clientes" data-en="What guests say">Lo que dicen los clientes</h2>
+    <p class="sub" data-es="Reseñas reales publicadas en línea sobre el 809." data-en="Real reviews published online about 809.">Reseñas reales publicadas en línea sobre el 809.</p>
+    <div class="resenas">
+      <div class="resena"><div class="estrellas">★★★★★</div><span data-es="Restaurante y lounge latino muy bien llevado, con bandas en vivo, DJ y baile. El dueño es hospitalario y el personal, amable y rápido. Rica la comida (pescado) y las bebidas." data-en="Very well run Latin restaurant and lounge with live bands, DJs and dancing. The owner is hospitable and the staff friendly and prompt. Great food (fish) and drinks.">Restaurante y lounge latino muy bien llevado, con bandas en vivo, DJ y baile. El dueño es hospitalario y el personal, amable y rápido. Rica la comida (pescado) y las bebidas.</span><strong>Nata M</strong></div>
+      <div class="resena"><div class="estrellas">★★★★★</div><span data-es="Un lounge-club-restaurante muy bonito: bebidas frías, excelente servicio, dos áreas con música diferente, billar y muy buen ambiente." data-en="A very nice lounge-club-restaurant: cold drinks, excellent service, two areas with different music, pool and a great ambience.">Un lounge-club-restaurante muy bonito: bebidas frías, excelente servicio, dos áreas con música diferente, billar y muy buen ambiente.</span><strong>Hamilton Jiménez Vásquez</strong></div>
+      <div class="resena"><div class="estrellas">★★★★★</div><span data-es="La fusión perfecta de comida, música y entretenimiento. Hookah, mesas de billar y un lounge increíble, con food trucks dominicanos por si da hambre tarde." data-en="The perfect fusion of food, music and entertainment. Hookahs, pool tables and an amazing lounge, with Dominican food trucks if you get late-night munchies.">La fusión perfecta de comida, música y entretenimiento. Hookah, mesas de billar y un lounge increíble, con food trucks dominicanos por si da hambre tarde.</span><strong>Edwin Andino</strong></div>
+    </div>
+  </div>
+</section>
+
+<section class="oscura">
+  <div class="contenedor doscol">
+    <div>
+      <h2 data-es="Visítanos" data-en="Visit us">Visítanos</h2>
+      <p class="sub">809 Lounge Restaurant &amp; Grill<br>3710 W Waters Ave, Tampa, FL 33614<br><a href="tel:+18132845300" style="color:var(--dorado2)">(813) 284-5300</a><br><a href="https://www.instagram.com/809restaurantandgrillfl" target="_blank" rel="noopener" style="color:var(--dorado2)">Instagram: @809restaurantandgrillfl</a></p>
+      <div class="hero-botones">
+        <a class="btn btn-dorado" href="tel:+18132845300" data-es="Llamar ahora" data-en="Call now">Llamar ahora</a>
+        <a class="btn btn-borde" href="https://www.google.com/maps/search/?api=1&amp;query=809+Lounge+Restaurant+%26+Grill+3710+W+Waters+Ave+Tampa+FL+33614" target="_blank" rel="noopener" data-es="Cómo llegar" data-en="Get directions">Cómo llegar</a>
+      </div>
+    </div>
+    <div>
+      <table aria-label="Horario">
+        <tr><td data-es="Lunes y martes" data-en="Monday &amp; Tuesday">Lunes y martes</td><td>9:00 AM – 5:00 PM</td></tr>
+        <tr><td data-es="Miércoles y jueves" data-en="Wednesday &amp; Thursday">Miércoles y jueves</td><td>9:00 AM – 11:00 PM</td></tr>
+        <tr><td data-es="Viernes y sábado" data-en="Friday &amp; Saturday">Viernes y sábado</td><td>9:00 AM – 2:00 AM</td></tr>
+        <tr><td data-es="Domingo" data-en="Sunday">Domingo</td><td>9:00 AM – 12:00 AM</td></tr>
+      </table>
+      <p class="nota" style="color:#cfc4ab" data-es="Horario publicado en sus canales en línea; los eventos nocturnos pueden extender el cierre. Confirmar al llamar." data-en="Hours published on its online channels; night events may extend closing. Confirm when you call.">Horario publicado en sus canales en línea; los eventos nocturnos pueden extender el cierre. Confirmar al llamar.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="contenedor">
+    <span data-es="Página de demostración preparada por New Age Professional Services · (813) 235-3313 · Datos y fotos reales del negocio, verificados el 16 de noviembre de 2026." data-en="Demo page prepared by New Age Professional Services · (813) 235-3313 · Real business data and photos, verified November 16, 2026.">Página de demostración preparada por New Age Professional Services · (813) 235-3313 · Datos y fotos reales del negocio, verificados el 16 de noviembre de 2026.</span>
+  </div>
+</footer>
+
+<script>
+var lang='es';
+function setLang(l){
+  lang=l;
+  document.querySelectorAll('[data-es]').forEach(function(el){
+    var v=el.getAttribute('data-'+l);
+    if(v!==null){ el.innerHTML=v; }
+  });
+  document.documentElement.lang=l;
+  document.getElementById('btn-idioma').textContent=(l==='es'?'EN':'ES');
+  try{ localStorage.setItem('lang809',l); }catch(e){}
+}
+function toggleLang(){ setLang(lang==='es'?'en':'es'); }
+try{ var s=localStorage.getItem('lang809'); if(s==='en'){ setLang('en'); } }catch(e){}
+</script>
+</body>
+</html>
