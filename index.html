@@ -6,7 +6,10 @@
 <title>809 Lounge Restaurant &amp; Grill — Tampa, FL</title>
 <meta name="description" content="809 Lounge en Tampa: bar, dos food trucks y grupos de música en vivo. 3710 W Waters Ave, Tampa, FL 33614 · (813) 284-5300">
 <link rel="canonical" href="https://lmanzano86-ui.github.io/demo-809-lounge/">
-<meta name="theme-color" content="#0e0d0b">
+<meta name="theme-color" content="#0B0A08">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="icon" href="https://lmanzano86-ui.github.io/demo-809-lounge/imgs/foto1.webp" type="image/webp">
 <meta property="og:title" content="809 Lounge Restaurant & Grill — Tampa, FL">
 <meta property="og:description" content="Bar, dos food trucks y grupos de música en vivo en Waters Ave, Tampa. El nuevo concepto del 809.">
@@ -15,97 +18,100 @@
 <meta name="twitter:card" content="summary_large_image">
 <style>
 :root{
-  --negro:#0e0d0b; --negro2:#171410; --crema:#f6efe3; --papel:#fffaf0;
-  --dorado:#c9a24b; --dorado2:#e8c877; --vino:#7a1f2b; --texto:#262019; --suave:#6f6455;
-  --fuente-titulo:Georgia,'Times New Roman',serif; --fuente:Arial,Helvetica,sans-serif;
-  --espacio-seccion:64px; --espacio-bloque:32px; --espacio-tarjeta:20px; --espacio-control:12px;
-  --radio:14px; --blanco:#fffef9; --linea:#e7dcc4; --linea2:#cbbd97; --suave2:#cfc4ab; --pie:#bdb096;
+  --fondo:#0B0A08; --superficie:#14110C; --linea:#8C7648; --texto:#EDE6DA; --suave:#CFC5B2;
+  --acento:#D4AF37; --tinta:#0B0A08; --velo:rgba(11,10,8,.97);
+  --fuente-titulo:"Cormorant Garamond",Georgia,serif; --fuente-texto:"Jost",Verdana,sans-serif;
+  --radio:2px; --espacio-seccion:96px; --espacio-bloque:32px; --espacio-tarjeta:24px; --espacio-control:16px;
 }
-:focus-visible{outline:3px solid var(--dorado);outline-offset:2px}
-*{box-sizing:border-box;margin:0;padding:0}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
 html,body{overflow-x:clip}
-body{font-family:var(--fuente);color:var(--texto);background:var(--papel);line-height:1.55}
-img{max-width:100%;display:block}
-h1,h2{font-family:var(--fuente-titulo);text-wrap:balance;overflow-wrap:break-word;min-width:0;line-height:1.12}
-a{color:inherit}
-.contenedor{max-width:1060px;margin:0 auto;padding:0 20px}
-header{position:sticky;top:0;z-index:20;background:var(--negro);color:var(--crema);border-bottom:3px solid var(--dorado)}
-.cabecera{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 0}
-.marca{display:flex;align-items:center;gap:12px;text-decoration:none}
-.marca-num{font-family:var(--fuente-titulo);font-size:34px;font-weight:bold;color:var(--dorado2);border:2px solid var(--dorado);border-radius:50%;width:58px;height:58px;display:flex;align-items:center;justify-content:center;flex:none}
-.marca-nombre{font-family:var(--fuente-titulo);font-size:19px;line-height:1.15}
-.marca-nombre small{display:block;font-family:var(--fuente);font-size:11px;letter-spacing:2px;color:var(--dorado2)}
-.acciones-cab{display:flex;gap:8px;align-items:center;flex:none}
-.btn{display:inline-block;text-decoration:none;font-weight:bold;border-radius:999px;padding:12px 22px;font-size:16px;transition:transform .18s ease,opacity .18s ease}
-.btn:active{transform:scale(.98)}
-.btn-dorado{background:var(--dorado);color:var(--negro)}
-.btn-oscuro{background:var(--negro);color:var(--crema);border:1px solid var(--negro)}
-.btn-borde{border:2px solid var(--crema);color:var(--crema);background:rgba(0,0,0,.25)}
-.btn-claro{border:2px solid var(--negro);color:var(--negro)}
-.btn-idioma{background:transparent;color:var(--dorado2);border:1px solid var(--dorado);padding:8px 14px;cursor:pointer;font-size:14px}
-.hero{position:relative;background:var(--negro);color:var(--crema)}
-.hero img.fondo{width:100%;height:520px;object-fit:cover;object-position:center 38%}
-.hero-texto{position:absolute;inset:0;display:flex;align-items:flex-end;background:linear-gradient(to top,rgba(0,0,0,.42),rgba(0,0,0,0) 55%)}
-.hero-caja{padding:0 0 34px}
-.etiqueta{letter-spacing:3px;font-size:12px;font-weight:bold;color:var(--dorado2);text-shadow:0 1px 6px rgba(0,0,0,.8)}
-.hero h1{font-size:44px;color:var(--blanco);text-shadow:0 2px 10px rgba(0,0,0,.85);max-width:640px;margin:8px 0 10px}
-.hero p{font-size:19px;max-width:560px;text-shadow:0 1px 8px rgba(0,0,0,.9);margin-bottom:20px}
-.hero-botones{display:flex;gap:10px;flex-wrap:wrap}
-.banda{background:var(--negro2);color:var(--crema);border-bottom:4px solid var(--dorado)}
-.banda-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;padding:18px 0;text-align:center;font-size:15px}
-.banda-grid strong{color:var(--dorado2);display:block;font-size:13px;letter-spacing:2px;margin-bottom:2px}
+body{margin:0;font-family:var(--fuente-texto);font-weight:300;background:var(--fondo);color:var(--texto);line-height:1.6;font-size:17px}
+.contenedor{max-width:1120px;margin:0 auto;padding:0 24px}
+:focus-visible{outline:2px solid var(--acento);outline-offset:3px}
+a{color:var(--texto)}
+.enlace{color:var(--texto);text-decoration:underline;text-underline-offset:4px;text-decoration-color:var(--linea);font-weight:400}
+.enlace:hover{text-decoration-color:var(--texto)}
+header{position:sticky;top:0;z-index:20;background:var(--velo);border-bottom:1px solid var(--linea)}
+.cabecera{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-top:12px;padding-bottom:12px}
+.marca{display:flex;align-items:center;gap:14px;text-decoration:none;color:var(--texto)}
+.marca-num{font-family:var(--fuente-titulo);font-weight:600;font-size:40px;line-height:1;border:3px double var(--linea);padding:4px 10px 7px}
+.marca-nombre{font-weight:500;font-size:18px;letter-spacing:2px;line-height:1.15}
+.marca-nombre small{display:block;font-size:10px;letter-spacing:3px;color:var(--suave);font-weight:400;margin-top:3px}
+nav.menu{display:flex;gap:28px}
+nav.menu a{color:var(--suave);text-decoration:none;font-size:13px;font-weight:400;letter-spacing:2.5px;text-transform:uppercase}
+nav.menu a:hover{color:var(--texto)}
+.acciones-cab{display:flex;gap:12px;align-items:center}
+.btn{display:inline-block;text-decoration:none;font-family:var(--fuente-texto);font-weight:500;letter-spacing:2.5px;text-transform:uppercase;border-radius:var(--radio);padding:14px 28px;font-size:14px;transition:transform .18s ease,opacity .18s ease;cursor:pointer}
+.btn:hover{transform:translateY(-1px)}
+.btn-dorado{background:var(--acento);color:var(--tinta);border:1px solid var(--acento)}
+.btn-idioma{background:transparent;border:1px solid var(--linea);color:var(--suave);padding:9px 14px;font-size:12px}
+.hero{position:relative;background:var(--fondo)}
+.hero img.fondo{width:100%;height:78svh;min-height:520px;object-fit:cover;object-position:center 30%;display:block;opacity:.92}
+.hero-texto{position:absolute;inset:auto 0 0 0;background:linear-gradient(to top,var(--velo) 55%,rgba(11,10,8,0));padding:120px 0 48px}
+.hero-caja{text-align:center}
+.etiqueta{color:var(--texto);font-weight:400;letter-spacing:4px;font-size:12px;text-transform:uppercase}
+.etiqueta::after{content:"";display:block;width:72px;border-top:3px double var(--linea);margin:18px auto 0}
+.hero h1{font-family:var(--fuente-titulo);font-weight:600;font-size:64px;line-height:1.05;margin:20px auto 16px;max-width:820px;text-wrap:balance;overflow-wrap:break-word;min-width:0}
+.hero p{font-size:19px;color:var(--suave);max-width:640px;margin:0 auto}
+.hero-botones{margin-top:28px;display:flex;gap:24px;flex-wrap:wrap;align-items:center}
+.hero-caja .hero-botones{justify-content:center}
+.banda{border-top:1px solid var(--linea);border-bottom:1px solid var(--linea);background:var(--superficie)}
+.banda-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;padding-top:22px;padding-bottom:22px;text-align:center;font-size:15px;color:var(--suave)}
+.banda-grid strong{display:block;color:var(--texto);font-size:11px;letter-spacing:3px;font-weight:500;margin-bottom:5px}
 section{padding:var(--espacio-seccion) 0}
-h2{font-size:32px;margin-bottom:8px}
-.sub{color:var(--suave);font-size:17px;margin-bottom:var(--espacio-bloque);max-width:640px}
-.tarjetas{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
-.tarjeta{background:var(--blanco);border:1px solid var(--linea);border-top:5px solid var(--dorado);border-radius:var(--radio);padding:var(--espacio-tarjeta)}
-.tarjeta h3{font-size:20px;margin-bottom:6px}
-.tarjeta .hora{color:var(--vino);font-weight:bold;font-size:15px;margin-bottom:6px}
-.oscura{background:var(--negro);color:var(--crema)}
-.oscura .sub{color:var(--suave2)}
-.menu-lista{display:grid;grid-template-columns:1fr 1fr;gap:14px 40px;margin-bottom:var(--espacio-bloque)}
-.plato{display:flex;justify-content:space-between;gap:16px;border-bottom:1px dashed var(--linea2);padding:10px 0}
-.plato strong{font-size:17px}
-.plato span{color:var(--suave);display:block;font-size:14px}
-.precio{font-family:var(--fuente-titulo);font-weight:bold;font-size:19px;color:var(--vino);white-space:nowrap}
-.nota{font-size:13px;color:var(--suave);margin-top:14px}
-.doscol{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:32px;align-items:center}
-.doscol img{border-radius:var(--radio);height:340px;width:100%;object-fit:cover}
-.lista{list-style:none;display:grid;gap:12px;font-size:17px}
-.lista li{padding-left:26px;position:relative}
-.lista li::before{content:"◆";position:absolute;left:0;color:var(--dorado);font-size:13px;top:4px}
-.resenas{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
-.resena{background:var(--crema);border-radius:var(--radio);padding:var(--espacio-tarjeta);font-size:15px}
-.resena .estrellas{color:var(--dorado);letter-spacing:2px;margin-bottom:8px}
-.resena strong{display:block;margin-top:10px}
-table{width:100%;border-collapse:collapse;font-size:16px}
-td{padding:9px 0;border-bottom:1px solid var(--linea)}
-td:last-child{text-align:right;font-weight:bold}
-footer{background:var(--negro);color:var(--pie);padding:28px 0;font-size:14px;text-align:center}
-footer a{color:var(--dorado2)}
-
-.galeria{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
-.galeria figure{border-radius:var(--radio);overflow:hidden;background:var(--negro)}
-.galeria img{width:100%;height:250px;object-fit:cover;transition:transform .3s ease,opacity .3s ease}
-.galeria figure:hover img{transform:scale(1.03)}
-.galeria figcaption{color:var(--crema);padding:12px 16px;font-size:15px}
-.galeria figcaption strong{color:var(--dorado2)}
-.banner-eventos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
-.banner{border:2px solid var(--dorado);border-radius:var(--radio);padding:var(--espacio-tarjeta);background:var(--negro2);color:var(--crema)}
-.banner .cuando{color:var(--dorado2);font-weight:bold;letter-spacing:1px;font-size:14px}
-.banner h3{font-family:var(--fuente-titulo);font-size:23px;margin:6px 0 8px;color:#fff}
-nav.menu{display:flex;gap:18px}
-nav.menu a{color:var(--crema);text-decoration:none;font-size:15px;font-weight:bold}
-nav.menu a:hover{color:var(--dorado2)}
-@media (max-width:760px){.galeria,.banner-eventos{grid-template-columns:1fr}nav.menu{display:none}}
+h2{font-family:var(--fuente-titulo);font-weight:600;font-size:44px;line-height:1.1;margin:0 0 14px;text-wrap:balance;overflow-wrap:break-word;min-width:0}
+h2::after{content:"";display:block;width:72px;border-top:3px double var(--linea);margin-top:18px}
+.sub{color:var(--suave);font-size:18px;max-width:640px;margin:0 0 40px}
+.tarjetas{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px}
+.tarjeta{border-top:1px solid var(--linea);padding-top:24px}
+.tarjeta h3{font-family:var(--fuente-titulo);font-weight:600;font-size:30px;margin:0 0 6px}
+.tarjeta .hora{color:var(--suave);font-weight:500;letter-spacing:2.5px;font-size:12px;text-transform:uppercase;margin-bottom:12px}
+.tarjeta p{color:var(--suave);margin:0}
+.banner-eventos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.banner{border:1px solid var(--linea);padding:var(--espacio-tarjeta);background:var(--superficie)}
+.banner .cuando{color:var(--suave);font-weight:500;letter-spacing:2.5px;font-size:12px;text-transform:uppercase}
+.banner h3{font-family:var(--fuente-titulo);font-weight:600;font-size:28px;margin:8px 0 10px}
+.banner p{color:var(--suave);margin:0}
+.oscura{background:var(--superficie);border-top:1px solid var(--linea);border-bottom:1px solid var(--linea)}
+.doscol{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:48px;align-items:start}
+.doscol img{width:100%;height:auto;border:1px solid var(--linea);padding:8px;background:var(--fondo)}
+.lista{list-style:none;padding:0;margin:0;display:grid;gap:14px}
+.lista li{padding-left:22px;position:relative;color:var(--suave)}
+.lista li::before{content:"";position:absolute;left:0;top:11px;width:10px;border-top:1px solid var(--linea)}
+.galeria{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+.galeria figure{margin:0;border:1px solid var(--linea);padding:8px;background:var(--superficie)}
+.galeria img{width:100%;height:260px;object-fit:cover;display:block;transition:transform .3s ease,opacity .3s ease}
+.galeria figure:hover img{transform:scale(1.02)}
+.galeria figcaption{color:var(--suave);padding:12px 6px 4px;font-size:13px;letter-spacing:1.5px;text-transform:uppercase}
+.galeria figcaption strong{color:var(--texto);font-weight:500}
+.resenas{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px}
+.resena{border-top:1px solid var(--linea);padding-top:20px}
+.resena span{font-family:var(--fuente-titulo);font-style:italic;font-size:20px;line-height:1.45;display:block}
+.resena strong{display:block;margin-top:14px;font-family:var(--fuente-texto);font-weight:500;font-size:13px;letter-spacing:2px;text-transform:uppercase;color:var(--suave)}
+.estrellas{color:var(--texto);letter-spacing:4px;font-size:13px;margin-bottom:12px}
+table{width:100%;border-collapse:collapse}
+table td{padding:13px 4px;border-bottom:1px solid var(--linea);color:var(--suave)}
+table td:last-child{text-align:right;color:var(--texto);font-variant-numeric:tabular-nums}
+.nota{color:var(--suave);font-size:14px;margin-top:16px}
+footer{border-top:1px solid var(--linea);background:var(--fondo);color:var(--suave);padding:36px 0;font-size:14px;text-align:center}
+footer .legales{margin-top:16px;display:flex;gap:28px;justify-content:center;flex-wrap:wrap}
+footer .legales a{color:var(--suave);letter-spacing:2px;text-transform:uppercase;font-size:12px;text-decoration:none}
+footer .legales a:hover{color:var(--texto)}
 @media (max-width:760px){
-  .hero img.fondo{height:480px}
-  .hero h1{font-size:34px}
-  .tarjetas,.resenas,.banda-grid,.doscol,.menu-lista{grid-template-columns:1fr}
-  :root{--espacio-seccion:48px}
-  .marca-nombre{font-size:16px}
+  nav.menu{display:none}
+  .hero img.fondo{height:520px;min-height:520px}
+  .hero h1{font-size:40px}
+  h2{font-size:34px}
+  .tarjetas,.resenas,.banda-grid,.doscol,.banner-eventos,.galeria{grid-template-columns:minmax(0,1fr)}
+  :root{--espacio-seccion:64px}
+  .marca-nombre{font-size:15px}
+  .marca-num{font-size:30px}
 }
-@media (prefers-reduced-motion:reduce){.btn{transition:none}}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .btn,.galeria img{transition:none}
+}
 </style>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"BarOrPub","name":"809 Lounge Restaurant & Grill","telephone":"+1-813-284-5300","address":{"@type":"PostalAddress","streetAddress":"3710 W Waters Ave","addressLocality":"Tampa","addressRegion":"FL","postalCode":"33614","addressCountry":"US"},"priceRange":"$$","url":"https://lmanzano86-ui.github.io/demo-809-lounge/"}
@@ -132,7 +138,7 @@ nav.menu a:hover{color:var(--dorado2)}
 </header>
 
 <div class="hero">
-  <img class="fondo" src="https://lmanzano86-ui.github.io/demo-809-lounge/imgs/foto1.webp" width="900" height="1200" alt="Exterior de 809 Lounge Restaurant & Grill en Tampa al atardecer, con palmeras y su letrero 809">
+  <img class="fondo" src="imgs/lounge.webp" width="1200" height="904" alt="El lounge VIP del 809 de noche, con luces azules, pantallas y el logo 809 en los asientos">
   <div class="hero-texto">
     <div class="contenedor hero-caja">
       <div class="etiqueta" data-es="BAR · FOOD TRUCKS · MÚSICA EN VIVO · TAMPA" data-en="BAR · FOOD TRUCKS · LIVE MUSIC · TAMPA">BAR · FOOD TRUCKS · MÚSICA EN VIVO · TAMPA</div>
@@ -140,7 +146,7 @@ nav.menu a:hover{color:var(--dorado2)}
       <p data-es="El nuevo concepto del 809: bar completo, dos food trucks para comer durante la fiesta y grupos de música en vivo en Waters Ave." data-en="809's new concept: a full bar, two food trucks to eat during the party and live music groups on Waters Ave.">El nuevo concepto del 809: bar completo, dos food trucks para comer durante la fiesta y grupos de música en vivo en Waters Ave.</p>
       <div class="hero-botones">
         <a class="btn btn-dorado" href="tel:+18132845300" data-es="Llamar al 809" data-en="Call 809">Llamar al 809</a>
-        <a class="btn btn-borde" href="https://www.google.com/maps/search/?api=1&amp;query=809+Lounge+Restaurant+%26+Grill+3710+W+Waters+Ave+Tampa+FL+33614" target="_blank" rel="noopener" data-es="Cómo llegar" data-en="Get directions">Cómo llegar</a>
+        <a class="enlace" href="https://www.google.com/maps/search/?api=1&amp;query=809+Lounge+Restaurant+%26+Grill+3710+W+Waters+Ave+Tampa+FL+33614" target="_blank" rel="noopener" data-es="Cómo llegar" data-en="Get directions">Cómo llegar</a>
       </div>
     </div>
   </div>
@@ -182,22 +188,22 @@ nav.menu a:hover{color:var(--dorado2)}
 <section id="eventos" style="padding-top:0">
   <div class="contenedor">
     <h2 data-es="Banners de la casa: así se mueve el 809" data-en="House banners: how 809 moves">Banners de la casa: así se mueve el 809</h2>
-    <p class="sub" data-es="El plan del 809 hoy es simple: tomar en el bar, comer de los food trucks y bailar con los grupos en vivo." data-en="809's plan today is simple: drink at the bar, eat from the food trucks and dance to the live groups.">El plan del 809 hoy es simple: tomar en el bar, comer de los food trucks y bailar con los grupos en vivo.</p>
+    <p class="sub" data-es="Sus noches ya tienen nombre propio, publicados en sus flyers: así se mueve el 809 cada semana." data-en="Its nights already have their own names, published in its flyers: this is how 809 moves every week.">Sus noches ya tienen nombre propio, publicados en sus flyers: así se mueve el 809 cada semana.</p>
     <div class="banner-eventos">
       <div class="banner">
-        <div class="cuando" data-es="EN TARIMA · EN VIVO" data-en="ON STAGE · LIVE">EN TARIMA · EN VIVO</div>
-        <h3 data-es="Grupos de música en vivo" data-en="Live music groups">Grupos de música en vivo</h3>
-        <p data-es="Grupos presentándose en el local: música latina para bailar toda la noche. Pregunta por la próxima fecha al llamar." data-en="Groups performing at the venue: Latin music to dance all night. Ask about the next date when you call.">Grupos presentándose en el local: música latina para bailar toda la noche. Pregunta por la próxima fecha al llamar.</p>
+        <div class="cuando" data-es="SÁBADOS · DESDE LAS 9 PM" data-en="SATURDAYS · FROM 9 PM">SÁBADOS · DESDE LAS 9 PM</div>
+        <h3>Grandes Ligas</h3>
+        <p data-es="Su noche insignia: DJs y grupos invitados, 21+ con identificación y código de vestimenta estricto. Nivel de club, en Waters Ave." data-en="Its signature night: guest DJs and groups, 21+ with ID and a strict dress code. Club level, on Waters Ave.">Su noche insignia: DJs y grupos invitados, 21+ con identificación y código de vestimenta estricto. Nivel de club, en Waters Ave.</p>
       </div>
       <div class="banner">
-        <div class="cuando" data-es="EL BAR · TODA LA NOCHE" data-en="THE BAR · ALL NIGHT">EL BAR · TODA LA NOCHE</div>
-        <h3 data-es="Bar, billar y dominó" data-en="Bar, pool &amp; dominoes">Bar, billar y dominó</h3>
-        <p data-es="Barra completa, mesas de billar de paño rojo y dominó entre amigos, con los deportes en pantalla." data-en="Full bar, red-felt pool tables and dominoes with friends, with sports on screen.">Barra completa, mesas de billar de paño rojo y dominó entre amigos, con los deportes en pantalla.</p>
+        <div class="cuando" data-es="JUEVES · NOCHE" data-en="THURSDAYS · NIGHT">JUEVES · NOCHE</div>
+        <h3>Ladies Night</h3>
+        <p data-es="Ellas no pagan y su primer cóctel va por la casa. DJ en vivo, deportes en pantalla y especiales de la barra." data-en="Ladies get in free and their first cocktail is on the house. Live DJ, sports on screen and bar specials.">Ellas no pagan y su primer cóctel va por la casa. DJ en vivo, deportes en pantalla y especiales de la barra.</p>
       </div>
       <div class="banner">
-        <div class="cuando" data-es="FOOD TRUCKS · EN EL LOCAL" data-en="FOOD TRUCKS · ON SITE">FOOD TRUCKS · EN EL LOCAL</div>
-        <h3 data-es="Comida sin salir de la fiesta" data-en="Food without leaving the party">Comida sin salir de la fiesta</h3>
-        <p data-es="Dos food trucks sirven durante el evento: comes, tomas y sigues bailando en el mismo lugar." data-en="Two food trucks serve during the event: you eat, drink and keep dancing in the same place.">Dos food trucks sirven durante el evento: comes, tomas y sigues bailando en el mismo lugar.</p>
+        <div class="cuando" data-es="VIERNES · NOCHE" data-en="FRIDAYS · NIGHT">VIERNES · NOCHE</div>
+        <h3>International Friday</h3>
+        <p data-es="Su noche internacional: brindis, bar completo y los food trucks sirviendo durante la fiesta." data-en="Its international night: toasts, a full bar and the food trucks serving during the party.">Su noche internacional: brindis, bar completo y los food trucks sirviendo durante la fiesta.</p>
       </div>
     </div>
   </div>
@@ -207,8 +213,8 @@ nav.menu a:hover{color:var(--dorado2)}
   <div class="contenedor">
     <h2 data-es="Para comer: los food trucks" data-en="To eat: the food trucks">Para comer: los food trucks</h2>
     <p class="sub" data-es="La cocina del nuevo 809 sale de sus dos food trucks: comida de fiesta, servida en el momento, para acompañar el bar y la música. El menú puede variar según el truck y la noche." data-en="The new 809's kitchen comes from its two food trucks: party food, served on the spot, to go with the bar and the music. The menu may vary by truck and by night.">La cocina del nuevo 809 sale de sus dos food trucks: comida de fiesta, servida en el momento, para acompañar el bar y la música. El menú puede variar según el truck y la noche.</p>
-    <a class="btn btn-dorado" href="tel:+18132845300" data-es="Pregunta qué hay hoy: (813) 284-5300" data-en="Ask what's on today: (813) 284-5300">Pregunta qué hay hoy: (813) 284-5300</a>
-    <a class="btn btn-borde" href="https://www.google.com/maps/search/?api=1&amp;query=809+Lounge+Restaurant+%26+Grill+3710+W+Waters+Ave+Tampa+FL+33614" target="_blank" rel="noopener" data-es="Cómo llegar" data-en="Get directions">Cómo llegar</a>
+    <a class="btn btn-dorado" href="tel:+18132845300" data-es="Llamar: (813) 284-5300" data-en="Call: (813) 284-5300">Llamar: (813) 284-5300</a>
+    <a class="enlace" href="https://www.google.com/maps/search/?api=1&amp;query=809+Lounge+Restaurant+%26+Grill+3710+W+Waters+Ave+Tampa+FL+33614" target="_blank" rel="noopener" data-es="Cómo llegar" data-en="Get directions">Cómo llegar</a>
   </div>
 </section>
 
@@ -224,10 +230,12 @@ nav.menu a:hover{color:var(--dorado2)}
         <li data-es="Música en vivo, DJ y noches de salsa, bachata y merengue" data-en="Live music, DJs and salsa, bachata and merengue nights">Música en vivo, DJ y noches de salsa, bachata y merengue</li>
         <li data-es="Mesas de billar y dominó entre amigos" data-en="Pool tables and dominoes with friends">Mesas de billar y dominó entre amigos</li>
         <li data-es="Bottle service para tu grupo" data-en="Bottle service for your group">Bottle service para tu grupo</li>
+        <li data-es="Artistas invitados en tarima: su primer aniversario lo celebró Elvis Martínez" data-en="Guest artists on stage: its first anniversary featured Elvis Martínez">Artistas invitados en tarima: su primer aniversario lo celebró Elvis Martínez</li>
+        <li data-es="Código de vestimenta estricto en las noches de evento" data-en="Strict dress code on event nights">Código de vestimenta estricto en las noches de evento</li>
         <li data-es="Cumpleaños y eventos privados — paquete de cumpleaños en el menú" data-en="Birthdays and private events — birthday package on the menu">Cumpleaños y eventos privados — paquete de cumpleaños en el menú</li>
         <li data-es="Deportes en pantalla: fútbol americano, fútbol y más" data-en="Sports on screen: football, soccer and more">Deportes en pantalla: fútbol americano, fútbol y más</li>
       </ul>
-      <p style="margin-top:20px"><a class="btn btn-oscuro" href="tel:+18132845300" data-es="Reservar tu fecha: (813) 284-5300" data-en="Book your date: (813) 284-5300">Reservar tu fecha: (813) 284-5300</a></p>
+      <p style="margin-top:24px"><a class="enlace" href="tel:+18132845300" data-es="Reservar tu fecha por teléfono" data-en="Book your date by phone">Reservar tu fecha por teléfono</a></p>
     </div>
   </div>
 </section>
@@ -238,7 +246,7 @@ nav.menu a:hover{color:var(--dorado2)}
     <h2 data-es="Galería real del 809" data-en="Real 809 gallery">Galería real del 809</h2>
     <p class="sub" data-es="Fotos reales del local publicadas en línea: sin montajes, así se ve por dentro." data-en="Real photos of the venue published online: no staging, this is how it looks inside.">Fotos reales del local publicadas en línea: sin montajes, así se ve por dentro.</p>
     <div class="galeria">
-      <figure><img src="imgs/lounge.webp" width="1200" height="904" loading="lazy" alt="Zona lounge VIP del 809 con luces azules, pantallas y el logo 809 en los asientos"><figcaption><strong data-es="El lounge VIP" data-en="The VIP lounge">El lounge VIP</strong> · <span data-es="luces, pantallas y bottle service" data-en="lights, screens and bottle service">luces, pantallas y bottle service</span></figcaption></figure>
+      <figure><img src="imgs/foto1.webp" width="900" height="1200" loading="lazy" alt="Exterior del 809 en Waters Ave al atardecer, con palmeras y su letrero luminoso"><figcaption><strong data-es="La llegada" data-en="The arrival">La llegada</strong> · <span data-es="su fachada en Waters Ave" data-en="its facade on Waters Ave">su fachada en Waters Ave</span></figcaption></figure>
       <figure><img src="imgs/billar.webp" width="1200" height="675" loading="lazy" alt="Mesas de billar de paño rojo dentro del 809 Lounge"><figcaption><strong data-es="El billar" data-en="Pool tables">El billar</strong> · <span data-es="mesas de paño rojo para jugar entre amigos" data-en="red-felt tables to play with friends">mesas de paño rojo para jugar entre amigos</span></figcaption></figure>
       <figure><img src="imgs/barra.webp" style="object-position:center 22%" width="904" height="1200" loading="lazy" alt="Cerveza dominicana República servida en la barra del 809"><figcaption><strong data-es="La barra" data-en="The bar">La barra</strong> · <span data-es="cerveza dominicana bien fría" data-en="ice-cold Dominican beer">cerveza dominicana bien fría</span></figcaption></figure>
       <figure><img src="imgs/foto2.webp" width="1200" height="675" loading="lazy" alt="Noche de fiesta llena en el 809, con luces de colores y música en vivo"><figcaption><strong data-es="La fiesta" data-en="The party">La fiesta</strong> · <span data-es="así se llenan sus noches de evento" data-en="this is how its event nights fill up">así se llenan sus noches de evento</span></figcaption></figure>
@@ -262,10 +270,10 @@ nav.menu a:hover{color:var(--dorado2)}
   <div class="contenedor doscol">
     <div>
       <h2 data-es="Visítanos" data-en="Visit us">Visítanos</h2>
-      <p class="sub">809 Lounge Restaurant &amp; Grill<br>3710 W Waters Ave, Tampa, FL 33614<br><a href="tel:+18132845300" style="color:var(--dorado2)">(813) 284-5300</a><br><a href="https://www.instagram.com/809restaurantandgrillfl" target="_blank" rel="noopener" style="color:var(--dorado2)">Instagram: @809restaurantandgrillfl</a></p>
+      <p class="sub">809 Lounge Restaurant &amp; Grill<br>3710 W Waters Ave, Tampa, FL 33614<br><a href="tel:+18132845300" class="enlace">(813) 284-5300</a><br><a href="https://www.instagram.com/809restaurantandgrillfl" target="_blank" rel="noopener" class="enlace">Instagram: @809restaurantandgrillfl</a></p>
       <div class="hero-botones">
         <a class="btn btn-dorado" href="tel:+18132845300" data-es="Llamar ahora" data-en="Call now">Llamar ahora</a>
-        <a class="btn btn-borde" href="https://www.google.com/maps/search/?api=1&amp;query=809+Lounge+Restaurant+%26+Grill+3710+W+Waters+Ave+Tampa+FL+33614" target="_blank" rel="noopener" data-es="Cómo llegar" data-en="Get directions">Cómo llegar</a>
+        <a class="enlace" href="https://www.google.com/maps/search/?api=1&amp;query=809+Lounge+Restaurant+%26+Grill+3710+W+Waters+Ave+Tampa+FL+33614" target="_blank" rel="noopener" data-es="Cómo llegar" data-en="Get directions">Cómo llegar</a>
       </div>
     </div>
     <div>
@@ -275,7 +283,7 @@ nav.menu a:hover{color:var(--dorado2)}
         <tr><td data-es="Viernes y sábado" data-en="Friday &amp; Saturday">Viernes y sábado</td><td>9:00 AM – 2:00 AM</td></tr>
         <tr><td data-es="Domingo" data-en="Sunday">Domingo</td><td>9:00 AM – 12:00 AM</td></tr>
       </table>
-      <p class="nota" style="color:#cfc4ab" data-es="Horario publicado en sus canales en línea; los eventos nocturnos pueden extender el cierre. Confirmar al llamar." data-en="Hours published on its online channels; night events may extend closing. Confirm when you call.">Horario publicado en sus canales en línea; los eventos nocturnos pueden extender el cierre. Confirmar al llamar.</p>
+      <p class="nota" data-es="Horario publicado en sus canales en línea; los eventos nocturnos pueden extender el cierre. Confirmar al llamar." data-en="Hours published on its online channels; night events may extend closing. Confirm when you call.">Horario publicado en sus canales en línea; los eventos nocturnos pueden extender el cierre. Confirmar al llamar.</p>
     </div>
   </div>
 </section>
@@ -283,6 +291,12 @@ nav.menu a:hover{color:var(--dorado2)}
 <footer>
   <div class="contenedor">
     <span data-es="Página de demostración preparada por New Age Professional Services · (813) 235-3313 · Datos y fotos reales del negocio, verificados el 16 de noviembre de 2026." data-en="Demo page prepared by New Age Professional Services · (813) 235-3313 · Real business data and photos, verified November 16, 2026.">Página de demostración preparada por New Age Professional Services · (813) 235-3313 · Datos y fotos reales del negocio, verificados el 16 de noviembre de 2026.</span>
+  </div>
+    <div class="legales">
+      <a href="privacidad.html" data-es="Privacidad" data-en="Privacy">Privacidad</a>
+      <a href="terminos.html" data-es="Términos" data-en="Terms">Términos</a>
+      <a href="cookies.html" data-es="Cookies" data-en="Cookies">Cookies</a>
+    </div>
   </div>
 </footer>
 
