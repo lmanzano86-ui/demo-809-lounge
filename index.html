@@ -112,9 +112,27 @@ footer .legales a:hover{color:var(--texto)}
   html{scroll-behavior:auto}
   .btn,.galeria img{transition:none}
 }
+
+/* Entrada por scroll (técnica de los reels de paneles, versión sobria) */
+.anim .revela{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+.anim .revela.visible{opacity:1;transform:none}
+.anim .revela.d1{transition-delay:.08s}
+.anim .revela.d2{transition-delay:.16s}
+@media (prefers-reduced-motion: reduce){
+.anim .revela{opacity:1;transform:none;transition:none}
+}
 </style>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"BarOrPub","name":"809 Lounge Restaurant & Grill","telephone":"+1-813-284-5300","address":{"@type":"PostalAddress","streetAddress":"3710 W Waters Ave","addressLocality":"Tampa","addressRegion":"FL","postalCode":"33614","addressCountry":"US"},"priceRange":"$$","url":"https://lmanzano86-ui.github.io/demo-809-lounge/"}
+
+  // Entrada por scroll: solo si el navegador lo soporta y no hay movimiento reducido
+  if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.documentElement.classList.add('anim');
+    var obs = new IntersectionObserver(function(es){
+      es.forEach(function(e){ if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+    }, {threshold: 0.12});
+    document.querySelectorAll('.revela').forEach(function(el){ obs.observe(el); });
+  }
 </script>
 </head>
 <body>
@@ -165,17 +183,17 @@ footer .legales a:hover{color:var(--texto)}
     <h2 data-es="El nuevo concepto del 809" data-en="809's new concept">El nuevo concepto del 809</h2>
     <p class="sub" data-es="El 809 estrenó concepto: bar completo, comida de dos food trucks y grupos de música en vivo." data-en="809 has a new concept: a full bar, food from two food trucks and live music groups.">El 809 estrenó concepto: bar completo, comida de dos food trucks y grupos de música en vivo.</p>
     <div class="tarjetas">
-      <div class="tarjeta">
+      <div class="tarjeta revela">
         <h3 data-es="El bar" data-en="The bar">El bar</h3>
         <div class="hora" data-es="BARRA COMPLETA" data-en="FULL BAR">BARRA COMPLETA</div>
         <p data-es="Cervezas bien frías, cócteles y bottle service. El bar es el corazón del nuevo 809." data-en="Ice-cold beers, cocktails and bottle service. The bar is the heart of the new 809.">Cervezas bien frías, cócteles y bottle service. El bar es el corazón del nuevo 809.</p>
       </div>
-      <div class="tarjeta">
+      <div class="tarjeta revela d1">
         <h3 data-es="Dos food trucks" data-en="Two food trucks">Dos food trucks</h3>
         <div class="hora" data-es="COMIDA DURANTE LA FIESTA" data-en="FOOD DURING THE PARTY">COMIDA DURANTE LA FIESTA</div>
         <p data-es="Dos food trucks en el local para comer sin salir del ambiente, también tarde en la noche." data-en="Two food trucks on site so you can eat without leaving the vibe, even late at night.">Dos food trucks en el local para comer sin salir del ambiente, también tarde en la noche.</p>
       </div>
-      <div class="tarjeta">
+      <div class="tarjeta revela d2">
         <h3 data-es="Grupos en vivo" data-en="Live groups">Grupos en vivo</h3>
         <div class="hora" data-es="MÚSICA EN TARIMA" data-en="LIVE ON STAGE">MÚSICA EN TARIMA</div>
         <p data-es="Grupos de música presentándose en vivo: la noche del 809 se arma con banda, baile y bar." data-en="Live music groups on stage: 809's night comes together with band, dancing and the bar.">Grupos de música presentándose en vivo: la noche del 809 se arma con banda, baile y bar.</p>
@@ -190,17 +208,17 @@ footer .legales a:hover{color:var(--texto)}
     <h2 data-es="Banners de la casa: así se mueve el 809" data-en="House banners: how 809 moves">Banners de la casa: así se mueve el 809</h2>
     <p class="sub" data-es="Sus noches ya tienen nombre propio, publicados en sus flyers: así se mueve el 809 cada semana." data-en="Its nights already have their own names, published in its flyers: this is how 809 moves every week.">Sus noches ya tienen nombre propio, publicados en sus flyers: así se mueve el 809 cada semana.</p>
     <div class="banner-eventos">
-      <div class="banner">
+      <div class="banner revela">
         <div class="cuando" data-es="SÁBADOS · DESDE LAS 9 PM" data-en="SATURDAYS · FROM 9 PM">SÁBADOS · DESDE LAS 9 PM</div>
         <h3>Grandes Ligas</h3>
         <p data-es="Su noche insignia: DJs y grupos invitados, 21+ con identificación y código de vestimenta estricto. Nivel de club, en Waters Ave." data-en="Its signature night: guest DJs and groups, 21+ with ID and a strict dress code. Club level, on Waters Ave.">Su noche insignia: DJs y grupos invitados, 21+ con identificación y código de vestimenta estricto. Nivel de club, en Waters Ave.</p>
       </div>
-      <div class="banner">
+      <div class="banner revela d1">
         <div class="cuando" data-es="JUEVES · NOCHE" data-en="THURSDAYS · NIGHT">JUEVES · NOCHE</div>
         <h3>Ladies Night</h3>
         <p data-es="Ellas no pagan y su primer cóctel va por la casa. DJ en vivo, deportes en pantalla y especiales de la barra." data-en="Ladies get in free and their first cocktail is on the house. Live DJ, sports on screen and bar specials.">Ellas no pagan y su primer cóctel va por la casa. DJ en vivo, deportes en pantalla y especiales de la barra.</p>
       </div>
-      <div class="banner">
+      <div class="banner revela d2">
         <div class="cuando" data-es="VIERNES · NOCHE" data-en="FRIDAYS · NIGHT">VIERNES · NOCHE</div>
         <h3>International Friday</h3>
         <p data-es="Su noche internacional: brindis, bar completo y los food trucks sirviendo durante la fiesta." data-en="Its international night: toasts, a full bar and the food trucks serving during the party.">Su noche internacional: brindis, bar completo y los food trucks sirviendo durante la fiesta.</p>
@@ -246,10 +264,10 @@ footer .legales a:hover{color:var(--texto)}
     <h2 data-es="Galería real del 809" data-en="Real 809 gallery">Galería real del 809</h2>
     <p class="sub" data-es="Fotos reales del local publicadas en línea: sin montajes, así se ve por dentro." data-en="Real photos of the venue published online: no staging, this is how it looks inside.">Fotos reales del local publicadas en línea: sin montajes, así se ve por dentro.</p>
     <div class="galeria">
-      <figure><img src="imgs/foto1.webp" width="900" height="1200" loading="lazy" alt="Exterior del 809 en Waters Ave al atardecer, con palmeras y su letrero luminoso"><figcaption><strong data-es="La llegada" data-en="The arrival">La llegada</strong> · <span data-es="su fachada en Waters Ave" data-en="its facade on Waters Ave">su fachada en Waters Ave</span></figcaption></figure>
-      <figure><img src="imgs/billar.webp" width="1200" height="675" loading="lazy" alt="Mesas de billar de paño rojo dentro del 809 Lounge"><figcaption><strong data-es="El billar" data-en="Pool tables">El billar</strong> · <span data-es="mesas de paño rojo para jugar entre amigos" data-en="red-felt tables to play with friends">mesas de paño rojo para jugar entre amigos</span></figcaption></figure>
-      <figure><img src="imgs/barra.webp" style="object-position:center 22%" width="904" height="1200" loading="lazy" alt="Cerveza dominicana República servida en la barra del 809"><figcaption><strong data-es="La barra" data-en="The bar">La barra</strong> · <span data-es="cerveza dominicana bien fría" data-en="ice-cold Dominican beer">cerveza dominicana bien fría</span></figcaption></figure>
-      <figure><img src="imgs/foto2.webp" width="1200" height="675" loading="lazy" alt="Noche de fiesta llena en el 809, con luces de colores y música en vivo"><figcaption><strong data-es="La fiesta" data-en="The party">La fiesta</strong> · <span data-es="así se llenan sus noches de evento" data-en="this is how its event nights fill up">así se llenan sus noches de evento</span></figcaption></figure>
+      <figure class="revela"><img src="imgs/foto1.webp" width="900" height="1200" loading="lazy" alt="Exterior del 809 en Waters Ave al atardecer, con palmeras y su letrero luminoso"><figcaption><strong data-es="La llegada" data-en="The arrival">La llegada</strong> · <span data-es="su fachada en Waters Ave" data-en="its facade on Waters Ave">su fachada en Waters Ave</span></figcaption></figure>
+      <figure class="revela"><img src="imgs/billar.webp" width="1200" height="675" loading="lazy" alt="Mesas de billar de paño rojo dentro del 809 Lounge"><figcaption><strong data-es="El billar" data-en="Pool tables">El billar</strong> · <span data-es="mesas de paño rojo para jugar entre amigos" data-en="red-felt tables to play with friends">mesas de paño rojo para jugar entre amigos</span></figcaption></figure>
+      <figure class="revela"><img src="imgs/barra.webp" style="object-position:center 22%" width="904" height="1200" loading="lazy" alt="Cerveza dominicana República servida en la barra del 809"><figcaption><strong data-es="La barra" data-en="The bar">La barra</strong> · <span data-es="cerveza dominicana bien fría" data-en="ice-cold Dominican beer">cerveza dominicana bien fría</span></figcaption></figure>
+      <figure class="revela"><img src="imgs/foto2.webp" width="1200" height="675" loading="lazy" alt="Noche de fiesta llena en el 809, con luces de colores y música en vivo"><figcaption><strong data-es="La fiesta" data-en="The party">La fiesta</strong> · <span data-es="así se llenan sus noches de evento" data-en="this is how its event nights fill up">así se llenan sus noches de evento</span></figcaption></figure>
     </div>
   </div>
 </section>
@@ -259,9 +277,9 @@ footer .legales a:hover{color:var(--texto)}
     <h2 data-es="Lo que dicen los clientes" data-en="What guests say">Lo que dicen los clientes</h2>
     <p class="sub" data-es="Reseñas reales publicadas en línea sobre el 809." data-en="Real reviews published online about 809.">Reseñas reales publicadas en línea sobre el 809.</p>
     <div class="resenas">
-      <div class="resena"><div class="estrellas">★★★★★</div><span data-es="Restaurante y lounge latino muy bien llevado, con bandas en vivo, DJ y baile. El dueño es hospitalario y el personal, amable y rápido. Rica la comida (pescado) y las bebidas." data-en="Very well run Latin restaurant and lounge with live bands, DJs and dancing. The owner is hospitable and the staff friendly and prompt. Great food (fish) and drinks.">Restaurante y lounge latino muy bien llevado, con bandas en vivo, DJ y baile. El dueño es hospitalario y el personal, amable y rápido. Rica la comida (pescado) y las bebidas.</span><strong>Nata M</strong></div>
-      <div class="resena"><div class="estrellas">★★★★★</div><span data-es="Un lounge-club-restaurante muy bonito: bebidas frías, excelente servicio, dos áreas con música diferente, billar y muy buen ambiente." data-en="A very nice lounge-club-restaurant: cold drinks, excellent service, two areas with different music, pool and a great ambience.">Un lounge-club-restaurante muy bonito: bebidas frías, excelente servicio, dos áreas con música diferente, billar y muy buen ambiente.</span><strong>Hamilton Jiménez Vásquez</strong></div>
-      <div class="resena"><div class="estrellas">★★★★★</div><span data-es="La fusión perfecta de comida, música y entretenimiento. Hookah, mesas de billar y un lounge increíble, con food trucks dominicanos por si da hambre tarde." data-en="The perfect fusion of food, music and entertainment. Hookahs, pool tables and an amazing lounge, with Dominican food trucks if you get late-night munchies.">La fusión perfecta de comida, música y entretenimiento. Hookah, mesas de billar y un lounge increíble, con food trucks dominicanos por si da hambre tarde.</span><strong>Edwin Andino</strong></div>
+      <div class="resena revela"><div class="estrellas">★★★★★</div><span data-es="Restaurante y lounge latino muy bien llevado, con bandas en vivo, DJ y baile. El dueño es hospitalario y el personal, amable y rápido. Rica la comida (pescado) y las bebidas." data-en="Very well run Latin restaurant and lounge with live bands, DJs and dancing. The owner is hospitable and the staff friendly and prompt. Great food (fish) and drinks.">Restaurante y lounge latino muy bien llevado, con bandas en vivo, DJ y baile. El dueño es hospitalario y el personal, amable y rápido. Rica la comida (pescado) y las bebidas.</span><strong>Nata M</strong></div>
+      <div class="resena revela d1"><div class="estrellas">★★★★★</div><span data-es="Un lounge-club-restaurante muy bonito: bebidas frías, excelente servicio, dos áreas con música diferente, billar y muy buen ambiente." data-en="A very nice lounge-club-restaurant: cold drinks, excellent service, two areas with different music, pool and a great ambience.">Un lounge-club-restaurante muy bonito: bebidas frías, excelente servicio, dos áreas con música diferente, billar y muy buen ambiente.</span><strong>Hamilton Jiménez Vásquez</strong></div>
+      <div class="resena revela d2"><div class="estrellas">★★★★★</div><span data-es="La fusión perfecta de comida, música y entretenimiento. Hookah, mesas de billar y un lounge increíble, con food trucks dominicanos por si da hambre tarde." data-en="The perfect fusion of food, music and entertainment. Hookahs, pool tables and an amazing lounge, with Dominican food trucks if you get late-night munchies.">La fusión perfecta de comida, música y entretenimiento. Hookah, mesas de billar y un lounge increíble, con food trucks dominicanos por si da hambre tarde.</span><strong>Edwin Andino</strong></div>
     </div>
   </div>
 </section>
