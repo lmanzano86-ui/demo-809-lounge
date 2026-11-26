@@ -97,6 +97,21 @@ table td:last-child{text-align:right;color:var(--texto);font-variant-numeric:tab
 footer{border-top:1px solid var(--linea);background:var(--fondo);color:var(--suave);padding:36px 0;font-size:14px;text-align:center}
 footer .legales{margin-top:16px;display:flex;gap:28px;justify-content:center;flex-wrap:wrap}
 footer .legales a{color:var(--suave);letter-spacing:2px;text-transform:uppercase;font-size:12px;text-decoration:none}
+/* Menú del restaurante en pantalla propia: oculto hasta tocar «Menú», con su barra de categorías que se oculta al deslizar hacia abajo */
+.pantalla-menu{position:fixed;inset:0;background:var(--fondo);z-index:200;transform:translateY(102%);transition:transform .38s ease;display:flex;flex-direction:column}
+.pantalla-menu.abierta{transform:translateY(0)}
+.pm-cab{display:flex;justify-content:space-between;align-items:center;padding:12px 20px;border-bottom:1px solid var(--linea);flex:0 0 auto}
+.pm-titulo{font-family:var(--fuente-titulo);font-size:19px;letter-spacing:1px}
+.pm-cerrar{background:none;border:1px solid var(--linea);color:var(--texto);width:40px;height:40px;border-radius:2px;font-size:17px;cursor:pointer;line-height:1}
+.pm-cuerpo{overflow-y:auto;flex:1 1 auto;position:relative}
+.pm-nav{position:sticky;top:0;z-index:5;background:var(--fondo);display:flex;gap:8px;overflow-x:auto;padding:12px 20px;border-bottom:1px solid var(--linea);transition:transform .25s ease;scrollbar-width:none}
+.pm-nav::-webkit-scrollbar{display:none}
+.pm-nav.oculta{transform:translateY(-102%)}
+.pm-nav a{flex:0 0 auto;color:var(--suave);text-decoration:none;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;padding:8px 13px;border:1px solid var(--linea);border-radius:999px}
+.pm-nav a.activo{color:var(--texto);border-color:var(--dorado-apagado,#8C7648)}
+.pm-contenido .contenedor{padding-top:28px;padding-bottom:56px}
+@media (prefers-reduced-motion: reduce){.pantalla-menu{transition:none}.pm-nav{transition:none}}
+
 /* Banda de foto a todo ancho con parallax (momento tipo post de frontendjoe) */
 .banda-foto{position:relative;overflow:hidden;height:74svh;min-height:440px}
 .banda-foto img{position:absolute;left:0;top:-60px;width:100%;height:calc(100% + 120px);object-fit:cover;object-position:center;will-change:transform}
@@ -138,6 +153,7 @@ nav.menu a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1p
 nav.menu a:hover::after,nav.menu a:focus-visible::after,nav.menu a.activo::after{transform:scaleX(1)}
 nav.menu a.activo{color:var(--texto)}
 .btn-menu{display:none;background:none;border:1px solid var(--linea);color:var(--texto);font-family:var(--fuente-texto);font-size:12px;letter-spacing:2.5px;text-transform:uppercase;padding:9px 14px;cursor:pointer;border-radius:2px}
+.btn-ue{display:inline-flex;align-items:center;justify-content:center;padding:6px;border:1px solid var(--linea);border-radius:2px;background:none;line-height:0}
 .btn-menu span{display:block;width:20px;height:2px;background:var(--texto)}
 .btn-menu span+span{margin-top:5px}
 .panel-menu{display:none}
@@ -199,6 +215,7 @@ nav.menu a.activo{color:var(--texto)}
     </nav>
     <div class="acciones-cab">
       <button class="btn-menu" id="btn-menu" aria-expanded="false" aria-controls="panel-menu" aria-label="Abrir el menú de navegación"><span></span><span></span><span></span></button>
+      <a class="btn-ue" href="https://www.ubereats.com/us-es/store/809-restaurant-lounge-3712-west-waters-avenue/iQWlh7s1XO6EgA9EOOHfWw?sc=SEARCH_SUGGESTION" target="_blank" rel="noopener" aria-label="Pedir delivery en Uber Eats" title="Uber Eats"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><rect width="24" height="24" rx="5.5" fill="#06C167"/><path d="M6.8 10h10.4l-.8 8.1a2 2 0 0 1-2 1.9H9.6a2 2 0 0 1-2-1.9L6.8 10Z" fill="#fff"/><path d="M9.3 10.2V9a2.7 2.7 0 0 1 5.4 0v1.2" fill="none" stroke="#fff" stroke-width="1.5"/></svg></a>
       <button class="btn btn-idioma" id="btn-idioma" onclick="toggleLang()">EN</button>
       <a class="btn btn-dorado" href="tel:+18132845300" data-es="Llamar" data-en="Call">Llamar</a>
     </div>
@@ -293,14 +310,30 @@ nav.menu a.activo{color:var(--texto)}
   </div>
 </section>
 
-<section id="menu">
+<div class="pantalla-menu" id="pantalla-menu" aria-hidden="true">
+  <div class="pm-cab">
+    <span class="pm-titulo" data-es="Menú · 809 Lounge" data-en="Menu · 809 Lounge">Menú · 809 Lounge</span>
+    <button class="pm-cerrar" id="pm-cerrar" aria-label="Cerrar el menú">✕</button>
+  </div>
+  <div class="pm-cuerpo" id="pm-cuerpo">
+    <nav class="pm-nav" id="pm-nav">
+      <a href="#cat-1" data-es="Para empezar" data-en="Appetizers">Para empezar</a>
+      <a href="#cat-2" data-es="Mofongos" data-en="Mofongos">Mofongos</a>
+      <a href="#cat-3" data-es="Sopas" data-en="Soups">Sopas</a>
+      <a href="#cat-4" data-es="Platos calientes" data-en="Hot food">Platos calientes</a>
+      <a href="#cat-5" data-es="Sándwiches" data-en="Sandwiches">Sándwiches</a>
+      <a href="#cat-6" data-es="Desayuno" data-en="Breakfast">Desayuno</a>
+      <a href="#cat-7" data-es="Ensalada y postre" data-en="Salad & dessert">Ensalada y postre</a>
+      <a href="#cat-8" data-es="Bebidas" data-en="Drinks">Bebidas</a>
+      <a href="#cat-9" data-es="Especiales del día" data-en="Daily specials">Especiales del día</a>
+    </nav>
+    <div class="pm-contenido">
   <div class="contenedor">
     <div class="seccion-cab revela">
       <h2 data-es="El menú del restaurante" data-en="The restaurant menu">El menú del restaurante</h2>
       <p class="sub" data-es="La cocina del 809 sigue viva y vende por Uber Eats: estos son sus platos con los precios de su ficha, tal como están publicados. Para pedir a domicilio, el pedido se hace en Uber Eats." data-en="809's kitchen is alive and sells on Uber Eats: these are its dishes at the prices on its listing, exactly as published. For delivery, orders go through Uber Eats.">La cocina del 809 sigue viva y vende por Uber Eats: estos son sus platos con los precios de su ficha, tal como están publicados. Para pedir a domicilio, el pedido se hace en Uber Eats.</p>
-      <p style="margin-top:20px"><a class="enlace" href="https://www.ubereats.com/us-es/store/809-restaurant-lounge-3712-west-waters-avenue/iQWlh7s1XO6EgA9EOOHfWw?sc=SEARCH_SUGGESTION" target="_blank" rel="noopener" data-es="Ver el menú completo y pedir en Uber Eats" data-en="See the full menu and order on Uber Eats">Ver el menú completo y pedir en Uber Eats</a></p>
     </div>
-    <div class="menu-cat revela">
+    <div class="menu-cat revela" id="cat-1">
       <h3 data-es="Para empezar" data-en="Appetizers">Para empezar</h3>
       <ul class="platos">
         <li class="plato"><span>Tostones Basket</span><span class="precio">$5.00</span></li>
@@ -316,7 +349,7 @@ nav.menu a.activo{color:var(--texto)}
         <li class="plato"><span>Picadera Mixta Large</span><span class="precio">$65.00</span></li>
       </ul>
     </div>
-    <div class="menu-cat revela">
+    <div class="menu-cat revela" id="cat-2">
       <h3>Mofongos</h3>
       <ul class="platos">
         <li class="plato"><span>Mofongo sin acompañante</span><span class="precio">$14.00</span></li>
@@ -326,7 +359,7 @@ nav.menu a.activo{color:var(--texto)}
         <li class="plato"><span>Mofongo + Churrasco</span><span class="precio">$35.00</span></li>
       </ul>
     </div>
-    <div class="menu-cat revela">
+    <div class="menu-cat revela" id="cat-3">
       <h3 data-es="Sopas" data-en="Soups">Sopas</h3>
       <ul class="platos">
         <li class="plato"><span>Pati-Mongo</span><span class="precio">$15.99</span></li>
@@ -334,7 +367,7 @@ nav.menu a.activo{color:var(--texto)}
         <li class="plato"><span>Sancocho 7 Carnes</span><span class="precio">$20.00</span></li>
       </ul>
     </div>
-    <div class="menu-cat revela">
+    <div class="menu-cat revela" id="cat-4">
       <h3 data-es="Platos calientes" data-en="Hot food">Platos calientes</h3>
       <ul class="platos">
         <li class="plato"><span>Bistec Encebollado + arroz + frijoles + ensalada</span><span class="precio">$26.00</span></li>
@@ -346,7 +379,7 @@ nav.menu a.activo{color:var(--texto)}
         <li class="plato"><span>Vegetales al vapor</span><span class="precio">$4.99</span></li>
       </ul>
     </div>
-    <div class="menu-cat revela">
+    <div class="menu-cat revela" id="cat-5">
       <h3 data-es="Sándwiches" data-en="Sandwiches">Sándwiches</h3>
       <ul class="platos">
         <li class="plato"><span>Sándwich Cubano</span><span class="precio">$14.00</span></li>
@@ -356,7 +389,7 @@ nav.menu a.activo{color:var(--texto)}
         <li class="plato"><span>Tostada con Mantequilla</span><span class="precio">$4.00</span></li>
       </ul>
     </div>
-    <div class="menu-cat revela">
+    <div class="menu-cat revela" id="cat-6">
       <h3 data-es="Desayuno" data-en="Breakfast">Desayuno</h3>
       <ul class="platos">
         <li class="plato"><span>Desayuno Americano</span><span class="precio">$15.00</span></li>
@@ -365,14 +398,14 @@ nav.menu a.activo{color:var(--texto)}
         <li class="plato"><span>Extras: salami, tocineta, queso, jamón o huevo</span><span class="precio">$2.99 c/u</span></li>
       </ul>
     </div>
-    <div class="menu-cat revela">
+    <div class="menu-cat revela" id="cat-7">
       <h3 data-es="Ensalada y postre" data-en="Salad & dessert">Ensalada y postre</h3>
       <ul class="platos">
         <li class="plato"><span>Ensalada Verde</span><span class="precio">$6.00</span></li>
         <li class="plato"><span>Dominican Cake</span><span class="precio">$6.00</span></li>
       </ul>
     </div>
-    <div class="menu-cat revela">
+    <div class="menu-cat revela" id="cat-8">
       <h3 data-es="Bebidas" data-en="Drinks">Bebidas</h3>
       <ul class="platos">
         <li class="plato"><span>Guarapo de Caña</span><span class="precio">$9.99</span></li>
@@ -387,7 +420,7 @@ nav.menu a.activo{color:var(--texto)}
         <li class="plato"><span>Café con Leche Evaporada 12 oz</span><span class="precio">$5.00</span></li>
       </ul>
     </div>
-    <div class="menu-cat revela">
+    <div class="menu-cat revela" id="cat-9">
       <h3 data-es="Especiales del día" data-en="Daily specials">Especiales del día</h3>
       <div class="dia"><strong data-es="Lunes" data-en="Monday">Lunes</strong><span>Pernil Asado $13.00 · Pollo Guisado $13.00 · Pollo al Horno $13.00 · Picadillo $13.00 · Mondongo $15.99 · Chofán + Pollo $16.00</span></div>
       <div class="dia"><strong data-es="Martes" data-en="Tuesday">Martes</strong><span>Pernil Asado $13.00 · Pollo al Horno $13.00 · Arroz con Vegetales $0.00 · Costillas de Cerdo Asadas $14.00 · Sancocho Dominicano $17.00</span></div>
@@ -399,7 +432,9 @@ nav.menu a.activo{color:var(--texto)}
     </div>
     <p class="nota" data-es="Precios tomados de la ficha de Uber Eats del negocio el 25 de noviembre de 2026; pueden variar en la plataforma. Los nombres de los platos se publican tal como los lista el negocio." data-en="Prices taken from the business's Uber Eats listing on November 25, 2026; they may vary on the platform. Dish names are published as the business lists them.">Precios tomados de la ficha de Uber Eats del negocio el 25 de noviembre de 2026; pueden variar en la plataforma. Los nombres de los platos se publican tal como los lista el negocio.</p>
   </div>
-</section>
+    </div>
+  </div>
+</div>
 
 
 
@@ -578,6 +613,61 @@ try{ var s=localStorage.getItem('lang809'); if(s==='en'){ setLang('en'); } }catc
       window.addEventListener('scroll', function(){ if (!tickPx) { tickPx = true; requestAnimationFrame(pintaPx); } }, {passive: true});
       window.addEventListener('resize', pintaPx);
       pintaPx();
+    }
+  }
+
+  // Menú del restaurante en pantalla propia
+  var pantallaMenu = document.getElementById('pantalla-menu');
+  var pmCuerpo = document.getElementById('pm-cuerpo');
+  var pmNav = document.getElementById('pm-nav');
+  function abrirMenuRest(){
+    if (!pantallaMenu) return;
+    if (typeof cerrarPanel === 'function') cerrarPanel();
+    pantallaMenu.classList.add('abierta');
+    pantallaMenu.setAttribute('aria-hidden','false');
+    document.body.style.overflow = 'hidden';
+  }
+  function cerrarMenuRest(){
+    if (!pantallaMenu) return;
+    pantallaMenu.classList.remove('abierta');
+    pantallaMenu.setAttribute('aria-hidden','true');
+    document.body.style.overflow = '';
+  }
+  if (pantallaMenu) {
+    document.querySelectorAll('a[href="#menu"]').forEach(function(a){
+      a.addEventListener('click', function(e){ e.preventDefault(); abrirMenuRest(); });
+    });
+    document.getElementById('pm-cerrar').addEventListener('click', cerrarMenuRest);
+    document.addEventListener('keydown', function(e){ if (e.key === 'Escape') cerrarMenuRest(); });
+    var pmUltimoY = 0, pmTick = false;
+    pmCuerpo.addEventListener('scroll', function(){
+      if (pmTick) return; pmTick = true;
+      requestAnimationFrame(function(){
+        pmTick = false;
+        var y = pmCuerpo.scrollTop;
+        if (y > pmUltimoY + 4 && y > 140) pmNav.classList.add('oculta');
+        else if (y < pmUltimoY - 4) pmNav.classList.remove('oculta');
+        pmUltimoY = y;
+      });
+    }, {passive: true});
+    pmNav.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', function(e){
+        e.preventDefault();
+        var destino = document.querySelector(a.getAttribute('href'));
+        if (destino) pmCuerpo.scrollTo({top: Math.max(destino.offsetTop - 8, 0), behavior: 'smooth'});
+      });
+    });
+    if ('IntersectionObserver' in window) {
+      var pmSpy = new IntersectionObserver(function(es){
+        es.forEach(function(en){
+          if (en.isIntersecting) {
+            pmNav.querySelectorAll('a').forEach(function(a){
+              a.classList.toggle('activo', a.getAttribute('href') === '#' + en.target.id);
+            });
+          }
+        });
+      }, {root: pmCuerpo, rootMargin: '-12% 0px -70% 0px'});
+      document.querySelectorAll('.menu-cat[id]').forEach(function(c){ pmSpy.observe(c); });
     }
   }
 </script>
