@@ -214,6 +214,26 @@ body{background:radial-gradient(1100px 520px at 50% -8%, rgba(212,175,55,.08), r
 .marca-num{border-color:#B9974F;color:var(--oro-claro);box-shadow:0 0 18px rgba(212,175,55,.12)}
 .etiqueta::after{border-top-color:#B9974F}
 .hero .etiqueta{color:var(--oro-claro)}
+
+/* Detalle visual completo (revisión de Lester): etiquetas en oro claro, estrellas doradas, ambiente a dos columnas, galería con vida y pie con marca */
+.banda-grid strong{color:var(--oro-claro)}
+.tarjeta .hora{color:var(--oro-claro)}
+.banner .cuando{color:var(--oro-claro)}
+.estrellas{color:var(--acento);font-size:15px}
+.resena strong{color:var(--oro-claro)}
+.galeria figcaption strong{color:var(--oro-claro)}
+.galeria figure{overflow:hidden;transition:border-color .3s ease}
+.galeria figure:hover{border-color:var(--acento)}
+.galeria figure:hover img{transform:scale(1.05)}
+.doscol.ambiente{grid-template-columns:minmax(0,1fr)}
+.lista li::before{border-top-color:var(--acento);width:12px}
+@media (min-width:861px){.lista{grid-template-columns:repeat(2,minmax(0,1fr));column-gap:56px}}
+.banda-foto .etiqueta{color:var(--oro-claro)}
+#comer .tarjetas{margin:38px 0 42px}
+.pie-marca{display:flex;flex-direction:column;align-items:center;gap:10px;margin-bottom:22px}
+.marca-num.mini{font-size:26px;padding:3px 8px 5px}
+.pie-nombre{font-family:var(--fuente-titulo);font-size:22px;letter-spacing:2px}
+@media (max-width:640px){#comer .enlace{display:block;width:max-content;margin-top:16px}}
 </style>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"BarOrPub","name":"809 Lounge Restaurant & Grill","telephone":"+1-813-284-5300","address":{"@type":"PostalAddress","streetAddress":"3710 W Waters Ave","addressLocality":"Tampa","addressRegion":"FL","postalCode":"33614","addressCountry":"US"},"priceRange":"$$","url":"https://lmanzano86-ui.github.io/demo-809-lounge/"}
@@ -300,8 +320,8 @@ body{background:radial-gradient(1100px 520px at 50% -8%, rgba(212,175,55,.08), r
 
 <section id="eventos" style="padding-top:0">
   <div class="contenedor">
-    <h2 data-es="Banners de la casa: así se mueve el 809" data-en="House banners: how 809 moves">Banners de la casa: así se mueve el 809</h2>
-    <p class="sub" data-es="Sus noches ya tienen nombre propio, publicados en sus flyers: así se mueve el 809 cada semana." data-en="Its nights already have their own names, published in its flyers: this is how 809 moves every week.">Sus noches ya tienen nombre propio, publicados en sus flyers: así se mueve el 809 cada semana.</p>
+    <h2 data-es="Las noches de la casa" data-en="The house nights">Las noches de la casa</h2>
+    <p class="sub" data-es="Sus noches ya tienen nombre propio, publicados en sus flyers, semana tras semana: así se mueve el 809." data-en="Its nights already have their own names, published in its flyers, week after week: this is how 809 moves.">Sus noches ya tienen nombre propio, publicados en sus flyers, semana tras semana: así se mueve el 809.</p>
     <div class="banner-eventos">
       <div class="banner revela">
         <div class="cuando" data-es="SÁBADOS · DESDE LAS 9 PM" data-en="SATURDAYS · FROM 9 PM">SÁBADOS · DESDE LAS 9 PM</div>
@@ -326,6 +346,23 @@ body{background:radial-gradient(1100px 520px at 50% -8%, rgba(212,175,55,.08), r
   <div class="contenedor">
     <h2 data-es="Para comer: los food trucks" data-en="To eat: the food trucks">Para comer: los food trucks</h2>
     <p class="sub" data-es="La cocina del nuevo 809 sale de sus dos food trucks: comida de fiesta, servida en el momento, para acompañar el bar y la música. El menú puede variar según el truck y la noche." data-en="The new 809's kitchen comes from its two food trucks: party food, served on the spot, to go with the bar and the music. The menu may vary by truck and by night.">La cocina del nuevo 809 sale de sus dos food trucks: comida de fiesta, servida en el momento, para acompañar el bar y la música. El menú puede variar según el truck y la noche.</p>
+    <div class="tarjetas">
+      <div class="tarjeta revela">
+        <h3 data-es="Comida de fiesta" data-en="Party food">Comida de fiesta</h3>
+        <div class="hora" data-es="Para acompañar" data-en="To go with it">Para acompañar</div>
+        <p data-es="Platos para acompañar el bar y la música, sin salir del ambiente." data-en="Dishes to go with the bar and the music, without leaving the vibe.">Platos para acompañar el bar y la música, sin salir del ambiente.</p>
+      </div>
+      <div class="tarjeta revela d1">
+        <h3 data-es="Servida en el momento" data-en="Served on the spot">Servida en el momento</h3>
+        <div class="hora" data-es="De los dos food trucks" data-en="From the two food trucks">De los dos food trucks</div>
+        <p data-es="La cocina sale de sus dos food trucks, servida en el momento para la fiesta." data-en="The kitchen comes from its two food trucks, served on the spot for the party.">La cocina sale de sus dos food trucks, servida en el momento para la fiesta.</p>
+      </div>
+      <div class="tarjeta revela d2">
+        <h3 data-es="Tarde en la noche" data-en="Late into the night">Tarde en la noche</h3>
+        <div class="hora" data-es="Durante la fiesta" data-en="During the party">Durante la fiesta</div>
+        <p data-es="Para comer sin salir del ambiente, también tarde en la noche." data-en="To eat without leaving the vibe, also late into the night.">Para comer sin salir del ambiente, también tarde en la noche.</p>
+      </div>
+    </div>
     <a class="btn btn-dorado" href="tel:+18132845300" data-es="Llamar: (813) 284-5300" data-en="Call: (813) 284-5300">Llamar: (813) 284-5300</a>
     <a class="enlace" href="https://www.google.com/maps/search/?api=1&amp;query=809+Lounge+Restaurant+%26+Grill+3710+W+Waters+Ave+Tampa+FL+33614" target="_blank" rel="noopener" data-es="Cómo llegar" data-en="Get directions">Cómo llegar</a>
   </div>
@@ -462,7 +499,7 @@ body{background:radial-gradient(1100px 520px at 50% -8%, rgba(212,175,55,.08), r
 
 
 <section>
-  <div class="contenedor doscol">
+  <div class="contenedor doscol ambiente">
     <div>
       <h2 data-es="El ambiente del 809" data-en="The 809 vibe">El ambiente del 809</h2>
       <p class="sub" data-es="Dos ambientes, escenario para música en vivo y espacio para tus celebraciones, con capacidad para 100 personas." data-en="Two areas, a stage for live music and room for your celebrations, with capacity for 100 guests.">Dos ambientes, escenario para música en vivo y espacio para tus celebraciones, con capacidad para 100 personas.</p>
@@ -538,6 +575,8 @@ body{background:radial-gradient(1100px 520px at 50% -8%, rgba(212,175,55,.08), r
 
 <footer>
   <div class="contenedor">
+    <div class="pie-marca"><span class="marca-num mini">809</span><span class="pie-nombre">809 Lounge</span></div>
+
     <span data-es="Página de demostración preparada por New Age Professional Services · (813) 235-3313 · Datos y fotos reales del negocio, verificados el 16 de noviembre de 2026." data-en="Demo page prepared by New Age Professional Services · (813) 235-3313 · Real business data and photos, verified November 16, 2026.">Página de demostración preparada por New Age Professional Services · (813) 235-3313 · Datos y fotos reales del negocio, verificados el 16 de noviembre de 2026.</span>
   </div>
     <div class="legales">
@@ -545,7 +584,6 @@ body{background:radial-gradient(1100px 520px at 50% -8%, rgba(212,175,55,.08), r
       <a href="terminos.html" data-es="Términos" data-en="Terms">Términos</a>
       <a href="cookies.html" data-es="Cookies" data-en="Cookies">Cookies</a>
     </div>
-  </div>
 </footer>
 
 <script>
