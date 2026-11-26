@@ -154,6 +154,20 @@ nav.menu a.activo{color:var(--texto)}
 .dia{display:flex;gap:18px;padding:9px 0;border-bottom:1px dotted rgba(140,118,72,.35);font-size:16px}
 .dia strong{flex:0 0 104px;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--suave);font-weight:500;padding-top:4px}
 @media (max-width:720px){.platos{columns:1}.dia{flex-direction:column;gap:2px}}
+
+/* Barra en teléfono: todo cabe en la fila (reporte de Lester 2026-11-25) */
+@media (max-width:860px){
+  .cabecera{gap:10px}
+  .marca{gap:10px;min-width:0}
+  .marca-num{font-size:26px;padding:3px 8px 5px}
+  .acciones-cab{gap:8px;flex-shrink:0}
+  header .btn{padding:10px 14px;font-size:12px;letter-spacing:1.5px;white-space:nowrap}
+  header .btn-idioma{padding:10px 9px}
+  .btn-menu{padding:9px 10px;letter-spacing:1.5px;white-space:nowrap}
+}
+@media (max-width:560px){
+  .marca-nombre{display:none}
+}
 </style>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"BarOrPub","name":"809 Lounge Restaurant & Grill","telephone":"+1-813-284-5300","address":{"@type":"PostalAddress","streetAddress":"3710 W Waters Ave","addressLocality":"Tampa","addressRegion":"FL","postalCode":"33614","addressCountry":"US"},"priceRange":"$$","url":"https://lmanzano86-ui.github.io/demo-809-lounge/"}
