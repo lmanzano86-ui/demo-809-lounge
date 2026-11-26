@@ -138,6 +138,8 @@ nav.menu a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1p
 nav.menu a:hover::after,nav.menu a:focus-visible::after,nav.menu a.activo::after{transform:scaleX(1)}
 nav.menu a.activo{color:var(--texto)}
 .btn-menu{display:none;background:none;border:1px solid var(--linea);color:var(--texto);font-family:var(--fuente-texto);font-size:12px;letter-spacing:2.5px;text-transform:uppercase;padding:9px 14px;cursor:pointer;border-radius:2px}
+.btn-menu span{display:block;width:20px;height:2px;background:var(--texto)}
+.btn-menu span+span{margin-top:5px}
 .panel-menu{display:none}
 @media (max-width:860px){
   nav.menu{display:none}
@@ -190,20 +192,20 @@ nav.menu a.activo{color:var(--texto)}
     </a>
     <nav class="menu">
       <a href="#comer" data-es="Comida" data-en="Food">Comida</a>
-      <a href="#menu" data-es="La carta" data-en="La Carta">La carta</a>
+      <a href="#menu" data-es="Menú" data-en="Menu">Menú</a>
       <a href="#eventos" data-es="Eventos" data-en="Events">Eventos</a>
       <a href="#galeria" data-es="Galería" data-en="Gallery">Galería</a>
       <a href="#visitanos" data-es="Visítanos" data-en="Visit us">Visítanos</a>
     </nav>
     <div class="acciones-cab">
-      <button class="btn-menu" id="btn-menu" aria-expanded="false" aria-controls="panel-menu" data-es="Menú" data-en="Menu">Menú</button>
+      <button class="btn-menu" id="btn-menu" aria-expanded="false" aria-controls="panel-menu" aria-label="Abrir el menú de navegación"><span></span><span></span><span></span></button>
       <button class="btn btn-idioma" id="btn-idioma" onclick="toggleLang()">EN</button>
       <a class="btn btn-dorado" href="tel:+18132845300" data-es="Llamar" data-en="Call">Llamar</a>
     </div>
   </div>
   <nav class="panel-menu" id="panel-menu" aria-label="Menú">
     <a href="#comer" data-es="Comida" data-en="Food">Comida</a>
-    <a href="#menu" data-es="La carta" data-en="La Carta">La carta</a>
+    <a href="#menu" data-es="Menú" data-en="Menu">Menú</a>
     <a href="#eventos" data-es="Eventos" data-en="Events">Eventos</a>
     <a href="#galeria" data-es="Galería" data-en="Gallery">Galería</a>
     <a href="#visitanos" data-es="Visítanos" data-en="Visit us">Visítanos</a>
