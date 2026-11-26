@@ -144,6 +144,16 @@ nav.menu a.activo{color:var(--texto)}
 @media (prefers-reduced-motion: reduce){
   header,.panel-menu,nav.menu a::after{transition:none}
 }
+
+/* Menú del restaurante (Uber Eats) */
+.menu-cat{margin-top:44px}
+.menu-cat>h3{font-family:var(--fuente-titulo);font-weight:600;font-size:26px;margin:0 0 6px;padding-bottom:10px;border-bottom:1px solid var(--linea)}
+.platos{list-style:none;margin:0;padding:0;columns:2;column-gap:56px}
+.plato{display:flex;justify-content:space-between;align-items:baseline;gap:18px;padding:8px 0;border-bottom:1px dotted rgba(140,118,72,.35);break-inside:avoid;font-size:16px}
+.plato .precio{font-variant-numeric:tabular-nums;color:var(--texto);white-space:nowrap}
+.dia{display:flex;gap:18px;padding:9px 0;border-bottom:1px dotted rgba(140,118,72,.35);font-size:16px}
+.dia strong{flex:0 0 104px;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--suave);font-weight:500;padding-top:4px}
+@media (max-width:720px){.platos{columns:1}.dia{flex-direction:column;gap:2px}}
 </style>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"BarOrPub","name":"809 Lounge Restaurant & Grill","telephone":"+1-813-284-5300","address":{"@type":"PostalAddress","streetAddress":"3710 W Waters Ave","addressLocality":"Tampa","addressRegion":"FL","postalCode":"33614","addressCountry":"US"},"priceRange":"$$","url":"https://lmanzano86-ui.github.io/demo-809-lounge/"}
@@ -190,7 +200,7 @@ nav.menu a.activo{color:var(--texto)}
         }
       });
     }, {rootMargin: '-40% 0px -55% 0px'});
-    ['comer','eventos','galeria','visitanos'].forEach(function(id){
+    ['comer','menu','eventos','galeria','visitanos'].forEach(function(id){
       var s = document.getElementById(id); if (s) spy.observe(s);
     });
   }
@@ -205,6 +215,8 @@ nav.menu a.activo{color:var(--texto)}
     </a>
     <nav class="menu">
       <a href="#comer" data-es="Comida" data-en="Food">Comida</a>
+    <a href="#menu" data-es="Menú" data-en="Menu">Menú</a>
+      <a href="#menu" data-es="Menú" data-en="Menu">Menú</a>
       <a href="#eventos" data-es="Eventos" data-en="Events">Eventos</a>
       <a href="#galeria" data-es="Galería" data-en="Gallery">Galería</a>
       <a href="#visitanos" data-es="Visítanos" data-en="Visit us">Visítanos</a>
@@ -303,6 +315,115 @@ nav.menu a.activo{color:var(--texto)}
     <a class="enlace" href="https://www.google.com/maps/search/?api=1&amp;query=809+Lounge+Restaurant+%26+Grill+3710+W+Waters+Ave+Tampa+FL+33614" target="_blank" rel="noopener" data-es="Cómo llegar" data-en="Get directions">Cómo llegar</a>
   </div>
 </section>
+
+<section id="menu">
+  <div class="contenedor">
+    <div class="seccion-cab revela">
+      <h2 data-es="El menú del restaurante" data-en="The restaurant menu">El menú del restaurante</h2>
+      <p class="sub" data-es="La cocina del 809 sigue viva y vende por Uber Eats: estos son sus platos con los precios de su ficha, tal como están publicados. Para pedir a domicilio, el pedido se hace en Uber Eats." data-en="809's kitchen is alive and sells on Uber Eats: these are its dishes at the prices on its listing, exactly as published. For delivery, orders go through Uber Eats.">La cocina del 809 sigue viva y vende por Uber Eats: estos son sus platos con los precios de su ficha, tal como están publicados. Para pedir a domicilio, el pedido se hace en Uber Eats.</p>
+      <p style="margin-top:20px"><a class="enlace" href="https://www.ubereats.com/us-es/store/809-restaurant-lounge-3712-west-waters-avenue/iQWlh7s1XO6EgA9EOOHfWw?sc=SEARCH_SUGGESTION" target="_blank" rel="noopener" data-es="Ver el menú completo y pedir en Uber Eats" data-en="See the full menu and order on Uber Eats">Ver el menú completo y pedir en Uber Eats</a></p>
+    </div>
+    <div class="menu-cat revela">
+      <h3 data-es="Para empezar" data-en="Appetizers">Para empezar</h3>
+      <ul class="platos">
+        <li class="plato"><span>Tostones Basket</span><span class="precio">$5.00</span></li>
+        <li class="plato"><span>Papas Fritas Basket</span><span class="precio">$5.00</span></li>
+        <li class="plato"><span>Yuca Frita Basket</span><span class="precio">$5.00</span></li>
+        <li class="plato"><span>Maduritos</span><span class="precio">$5.00</span></li>
+        <li class="plato"><span>Palitos de Queso Basket</span><span class="precio">$10.00</span></li>
+        <li class="plato"><span>6 Croquetas de Jamón Basket</span><span class="precio">$10.00</span></li>
+        <li class="plato"><span>Palitos de Pollo / Chicken Tenders</span><span class="precio">$12.00</span></li>
+        <li class="plato"><span>Picadera Chicharrón de Pollo con Tostones</span><span class="precio">$20.00</span></li>
+        <li class="plato"><span>20 Alitas de Pollo / Chicken Wings</span><span class="precio">$24.00</span></li>
+        <li class="plato"><span>Picadera Mixta</span><span class="precio">$35.00</span></li>
+        <li class="plato"><span>Picadera Mixta Large</span><span class="precio">$65.00</span></li>
+      </ul>
+    </div>
+    <div class="menu-cat revela">
+      <h3>Mofongos</h3>
+      <ul class="platos">
+        <li class="plato"><span>Mofongo sin acompañante</span><span class="precio">$14.00</span></li>
+        <li class="plato"><span>Mofongo + Masita de Cerdo</span><span class="precio">$22.00</span></li>
+        <li class="plato"><span>Mofongo + Chicharrón de Pollo</span><span class="precio">$25.00</span></li>
+        <li class="plato"><span>Mofongo + Camarones</span><span class="precio">$28.00</span></li>
+        <li class="plato"><span>Mofongo + Churrasco</span><span class="precio">$35.00</span></li>
+      </ul>
+    </div>
+    <div class="menu-cat revela">
+      <h3 data-es="Sopas" data-en="Soups">Sopas</h3>
+      <ul class="platos">
+        <li class="plato"><span>Pati-Mongo</span><span class="precio">$15.99</span></li>
+        <li class="plato"><span>Mondongo</span><span class="precio">$20.00</span></li>
+        <li class="plato"><span>Sancocho 7 Carnes</span><span class="precio">$20.00</span></li>
+      </ul>
+    </div>
+    <div class="menu-cat revela">
+      <h3 data-es="Platos calientes" data-en="Hot food">Platos calientes</h3>
+      <ul class="platos">
+        <li class="plato"><span>Bistec Encebollado + arroz + frijoles + ensalada</span><span class="precio">$26.00</span></li>
+        <li class="plato"><span>Pechuga a la Plancha + arroz + frijoles + ensalada verde</span><span class="precio">$22.00</span></li>
+        <li class="plato"><span>Side Arroz Frito</span><span class="precio">$6.99</span></li>
+        <li class="plato"><span>Side Congrí</span><span class="precio">$6.00</span></li>
+        <li class="plato"><span>Side Arroz Blanco</span><span class="precio">$5.99</span></li>
+        <li class="plato"><span>Side Arroz Amarillo</span><span class="precio">$5.99</span></li>
+        <li class="plato"><span>Vegetales al vapor</span><span class="precio">$4.99</span></li>
+      </ul>
+    </div>
+    <div class="menu-cat revela">
+      <h3 data-es="Sándwiches" data-en="Sandwiches">Sándwiches</h3>
+      <ul class="platos">
+        <li class="plato"><span>Sándwich Cubano</span><span class="precio">$14.00</span></li>
+        <li class="plato"><span>Sándwich Jamón y Queso</span><span class="precio">$7.00</span></li>
+        <li class="plato"><span>Tostada de Jamón</span><span class="precio">$5.00</span></li>
+        <li class="plato"><span>Tostada de Queso / Grilled Cheese</span><span class="precio">$5.00</span></li>
+        <li class="plato"><span>Tostada con Mantequilla</span><span class="precio">$4.00</span></li>
+      </ul>
+    </div>
+    <div class="menu-cat revela">
+      <h3 data-es="Desayuno" data-en="Breakfast">Desayuno</h3>
+      <ul class="platos">
+        <li class="plato"><span>Desayuno Americano</span><span class="precio">$15.00</span></li>
+        <li class="plato"><span>Bacalao con Vianda</span><span class="precio">$15.00</span></li>
+        <li class="plato"><span>3 Golpes</span><span class="precio">$13.00</span></li>
+        <li class="plato"><span>Extras: salami, tocineta, queso, jamón o huevo</span><span class="precio">$2.99 c/u</span></li>
+      </ul>
+    </div>
+    <div class="menu-cat revela">
+      <h3 data-es="Ensalada y postre" data-en="Salad & dessert">Ensalada y postre</h3>
+      <ul class="platos">
+        <li class="plato"><span>Ensalada Verde</span><span class="precio">$6.00</span></li>
+        <li class="plato"><span>Dominican Cake</span><span class="precio">$6.00</span></li>
+      </ul>
+    </div>
+    <div class="menu-cat revela">
+      <h3 data-es="Bebidas" data-en="Drinks">Bebidas</h3>
+      <ul class="platos">
+        <li class="plato"><span>Guarapo de Caña</span><span class="precio">$9.99</span></li>
+        <li class="plato"><span>Jugo de Naranja</span><span class="precio">$7.00</span></li>
+        <li class="plato"><span>Jugos naturales: parcha, mango o limón</span><span class="precio">$5.00</span></li>
+        <li class="plato"><span>Country Club: merengue, piña, naranja, frambuesa o uva</span><span class="precio">$4.50</span></li>
+        <li class="plato"><span>Sodas: Coca Cola o Pepsi</span><span class="precio">$2.99</span></li>
+        <li class="plato"><span>Botella de Agua</span><span class="precio">$2.00</span></li>
+        <li class="plato"><span>Coladita / Cuban Espresso</span><span class="precio">$1.99</span></li>
+        <li class="plato"><span>Café Americano</span><span class="precio">$4.00</span></li>
+        <li class="plato"><span>Café con Leche</span><span class="precio">$4.00</span></li>
+        <li class="plato"><span>Café con Leche Evaporada 12 oz</span><span class="precio">$5.00</span></li>
+      </ul>
+    </div>
+    <div class="menu-cat revela">
+      <h3 data-es="Especiales del día" data-en="Daily specials">Especiales del día</h3>
+      <div class="dia"><strong data-es="Lunes" data-en="Monday">Lunes</strong><span>Pernil Asado $13.00 · Pollo Guisado $13.00 · Pollo al Horno $13.00 · Picadillo $13.00 · Mondongo $15.99 · Chofán + Pollo $16.00</span></div>
+      <div class="dia"><strong data-es="Martes" data-en="Tuesday">Martes</strong><span>Pernil Asado $13.00 · Pollo al Horno $13.00 · Arroz con Vegetales $0.00 · Costillas de Cerdo Asadas $14.00 · Sancocho Dominicano $17.00</span></div>
+      <div class="dia"><strong data-es="Miércoles" data-en="Wednesday">Miércoles</strong><span>Pernil Asado $13.00 · Pollo al Horno $13.00 · Costillas de Cerdo Asadas $14.00 · Mondongo $15.99</span></div>
+      <div class="dia"><strong data-es="Jueves" data-en="Thursday">Jueves</strong><span>Pernil Asado $13.00 · Pollo al Horno $13.00</span></div>
+      <div class="dia"><strong data-es="Viernes" data-en="Friday">Viernes</strong><span>Pernil Asado $13.00 · Pollo Guisado $13.00 · Sancocho Dominicano $17.00</span></div>
+      <div class="dia"><strong data-es="Sábado" data-en="Saturday">Sábado</strong><span>Pati-Mongo $15.99 · Rabo / Oxtail Stew $16.99 · Sancocho Dominicano $17.00 · Chuleta a la Plancha $18.00 · Pechuga en Salsa $18.00</span></div>
+      <div class="dia"><strong data-es="Domingo" data-en="Sunday">Domingo</strong><span>Pernil Asado $13.00 · Sancocho Dominicano $20.00 · Cocido de Patica $20.00</span></div>
+    </div>
+    <p class="nota" data-es="Precios tomados de la ficha de Uber Eats del negocio el 25 de noviembre de 2026; pueden variar en la plataforma. Los nombres de los platos se publican tal como los lista el negocio." data-en="Prices taken from the business's Uber Eats listing on November 25, 2026; they may vary on the platform. Dish names are published as the business lists them.">Precios tomados de la ficha de Uber Eats del negocio el 25 de noviembre de 2026; pueden variar en la plataforma. Los nombres de los platos se publican tal como los lista el negocio.</p>
+  </div>
+</section>
+
 
 
 
