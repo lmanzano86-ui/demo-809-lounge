@@ -47,7 +47,7 @@ nav.menu a:hover{color:var(--texto)}
 .btn-dorado{background:var(--acento);color:var(--tinta);border:1px solid var(--acento)}
 .btn-idioma{background:transparent;border:1px solid var(--linea);color:var(--suave);padding:9px 14px;font-size:12px}
 .hero{position:relative;background:var(--fondo);overflow:hidden;height:calc(100svh - 58px);min-height:560px}
-.hero img.fondo{position:absolute;left:0;top:-60px;width:100%;height:calc(100% + 120px);object-fit:cover;object-position:center 30%;display:block;opacity:.92;will-change:transform}
+.hero img.fondo{position:absolute;left:0;top:-80px;width:100%;height:calc(100% + 160px);object-fit:cover;object-position:center 30%;display:block;opacity:.92;will-change:transform}
 .hero-texto{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:linear-gradient(to top,rgba(11,10,8,.85),rgba(11,10,8,.38) 55%,rgba(11,10,8,.28));padding:48px 0}
 .hero-caja{text-align:center}
 .etiqueta{color:var(--texto);font-weight:400;letter-spacing:4px;font-size:12px;text-transform:uppercase}
@@ -99,7 +99,7 @@ footer .legales{margin-top:16px;display:flex;gap:28px;justify-content:center;fle
 footer .legales a{color:var(--suave);letter-spacing:2px;text-transform:uppercase;font-size:12px;text-decoration:none}
 /* Banda de foto a todo ancho con parallax (momento tipo post de frontendjoe) */
 .banda-foto{position:relative;overflow:hidden;height:74svh;min-height:440px}
-.banda-foto img{position:absolute;left:0;top:-45px;width:100%;height:calc(100% + 90px);object-fit:cover;object-position:center;will-change:transform}
+.banda-foto img{position:absolute;left:0;top:-60px;width:100%;height:calc(100% + 120px);object-fit:cover;object-position:center;will-change:transform}
 .banda-foto .velo{position:absolute;inset:0;background:rgba(11,10,8,.48);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 20px}
 .banda-foto h2{margin:16px 0 0;max-width:760px}
 
@@ -554,11 +554,11 @@ try{ var s=localStorage.getItem('lang809'); if(s==='en'){ setLang('en'); } }catc
     });
   }
 
-  // Parallax suave ligado al scroll (técnica del reel de frontendjoe, sin librerías): los fondos se mueven más lento que el contenido
+  // Parallax ligado al scroll (técnica del reel de frontendjoe, sin librerías): fondos y textos se mueven a distinta velocidad que la página
   if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     var capasPx = [
-      {sec: document.querySelector('.hero'), img: document.querySelector('.hero img.fondo'), viaje: 120},
-      {sec: document.querySelector('.banda-foto'), img: document.querySelector('.banda-foto img'), viaje: 90}
+      {sec: document.querySelector('.hero'), img: document.querySelector('.hero img.fondo'), txt: document.querySelector('.hero .hero-texto'), viaje: 160, rezago: 44, modo: 'avance'},
+      {sec: document.querySelector('.banda-foto'), img: document.querySelector('.banda-foto img'), txt: document.querySelector('.banda-foto .velo'), viaje: 120, rezago: 26, modo: 'progreso'}
     ].filter(function(c){ return c.sec && c.img; });
     if (capasPx.length) {
       var tickPx = false;
@@ -568,9 +568,11 @@ try{ var s=localStorage.getItem('lang809'); if(s==='en'){ setLang('en'); } }catc
         capasPx.forEach(function(c){
           var r = c.sec.getBoundingClientRect();
           if (r.bottom < -80 || r.top > vh + 80) return;
-          var progreso = (vh - r.top) / (vh + r.height);
-          progreso = Math.min(Math.max(progreso, 0), 1);
-          c.img.style.transform = 'translateY(' + ((progreso - 0.5) * c.viaje).toFixed(1) + 'px)';
+          var p;
+          if (c.modo === 'avance') { p = Math.min(Math.max(-r.top / r.height, 0), 1); }
+          else { p = Math.min(Math.max((vh - r.top) / (vh + r.height), 0), 1); }
+          c.img.style.transform = 'translateY(' + ((p - 0.5) * c.viaje).toFixed(1) + 'px)';
+          if (c.txt) c.txt.style.transform = 'translateY(' + (p * c.rezago).toFixed(1) + 'px)';
         });
       };
       window.addEventListener('scroll', function(){ if (!tickPx) { tickPx = true; requestAnimationFrame(pintaPx); } }, {passive: true});
