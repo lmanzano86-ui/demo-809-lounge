@@ -46,8 +46,8 @@ nav.menu a:hover{color:var(--texto)}
 .btn:hover{transform:translateY(-1px)}
 .btn-dorado{background:var(--acento);color:var(--tinta);border:1px solid var(--acento)}
 .btn-idioma{background:transparent;border:1px solid var(--linea);color:var(--suave);padding:9px 14px;font-size:12px}
-.hero{position:relative;background:var(--fondo)}
-.hero img.fondo{width:100%;height:78svh;min-height:520px;object-fit:cover;object-position:center 30%;display:block;opacity:.92}
+.hero{position:relative;background:var(--fondo);overflow:hidden}
+.hero img.fondo{width:100%;height:calc(78svh + 72px);min-height:592px;object-fit:cover;object-position:center 30%;display:block;opacity:.92;margin:-36px 0;will-change:transform}
 .hero-texto{position:absolute;inset:auto 0 0 0;background:linear-gradient(to top,var(--velo) 55%,rgba(11,10,8,0));padding:120px 0 48px}
 .hero-caja{text-align:center}
 .etiqueta{color:var(--texto);font-weight:400;letter-spacing:4px;font-size:12px;text-transform:uppercase}
@@ -100,7 +100,7 @@ footer .legales a{color:var(--suave);letter-spacing:2px;text-transform:uppercase
 footer .legales a:hover{color:var(--texto)}
 @media (max-width:860px){
   nav.menu{display:none}
-  .hero img.fondo{height:520px;min-height:520px}
+  .hero img.fondo{height:592px;min-height:592px}
   .hero h1{font-size:40px}
   h2{font-size:34px}
   .tarjetas,.resenas,.banda-grid,.doscol,.banner-eventos,.galeria{grid-template-columns:minmax(0,1fr)}
@@ -535,6 +535,24 @@ try{ var s=localStorage.getItem('lang809'); if(s==='en'){ setLang('en'); } }catc
     ['comer','menu','eventos','galeria','visitanos'].forEach(function(id){
       var s = document.getElementById(id); if (s) spy.observe(s);
     });
+  }
+
+  // Parallax suave ligado al scroll (técnica del reel de frontendjoe, sin librerías): el fondo del hero se mueve más lento que el contenido
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    var hero809 = document.querySelector('.hero');
+    var fondo809 = hero809 ? hero809.querySelector('img.fondo') : null;
+    if (hero809 && fondo809) {
+      var tick809 = false;
+      var pinta809 = function(){
+        tick809 = false;
+        var r = hero809.getBoundingClientRect();
+        if (r.bottom < 0) return;
+        var avance = Math.min(Math.max(-r.top / r.height, 0), 1);
+        fondo809.style.transform = 'translateY(' + ((avance * 60) - 30).toFixed(1) + 'px)';
+      };
+      window.addEventListener('scroll', function(){ if (!tick809) { tick809 = true; requestAnimationFrame(pinta809); } }, {passive: true});
+      pinta809();
+    }
   }
 </script>
 </body>
