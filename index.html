@@ -172,52 +172,6 @@ nav.menu a.activo{color:var(--texto)}
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"BarOrPub","name":"809 Lounge Restaurant & Grill","telephone":"+1-813-284-5300","address":{"@type":"PostalAddress","streetAddress":"3710 W Waters Ave","addressLocality":"Tampa","addressRegion":"FL","postalCode":"33614","addressCountry":"US"},"priceRange":"$$","url":"https://lmanzano86-ui.github.io/demo-809-lounge/"}
 
-  // Entrada por scroll: solo si el navegador lo soporta y no hay movimiento reducido
-  if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    document.documentElement.classList.add('anim');
-    var obs = new IntersectionObserver(function(es){
-      es.forEach(function(e){ if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
-    }, {threshold: 0.12});
-    document.querySelectorAll('.revela').forEach(function(el){ obs.observe(el); });
-  }
-
-  // Barra de menú: sombra al flotar, se oculta al bajar y vuelve al subir; panel móvil y scrollspy
-  var cab = document.querySelector('header');
-  var btnMenu = document.getElementById('btn-menu');
-  var ultimoY = window.scrollY;
-  function cerrarPanel(){ cab.classList.remove('abierto'); if (btnMenu) btnMenu.setAttribute('aria-expanded','false'); }
-  if (btnMenu) {
-    btnMenu.addEventListener('click', function(){
-      var abierto = cab.classList.toggle('abierto');
-      btnMenu.setAttribute('aria-expanded', abierto ? 'true' : 'false');
-    });
-    document.querySelectorAll('.panel-menu a').forEach(function(a){ a.addEventListener('click', cerrarPanel); });
-    document.addEventListener('keydown', function(e){ if (e.key === 'Escape') cerrarPanel(); });
-  }
-  var reduceMenu = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  window.addEventListener('scroll', function(){
-    var y = window.scrollY;
-    cab.classList.toggle('flotante', y > 8);
-    if (!reduceMenu && !cab.classList.contains('abierto')) {
-      if (y > 260 && y > ultimoY + 4) cab.classList.add('oculta');
-      else if (y < ultimoY - 4 || y <= 260) cab.classList.remove('oculta');
-    }
-    ultimoY = y;
-  }, {passive: true});
-  if ('IntersectionObserver' in window) {
-    var spy = new IntersectionObserver(function(es){
-      es.forEach(function(e){
-        if (e.isIntersecting) {
-          document.querySelectorAll('header a[href^="#"]').forEach(function(a){
-            a.classList.toggle('activo', a.getAttribute('href') === '#' + e.target.id);
-          });
-        }
-      });
-    }, {rootMargin: '-40% 0px -55% 0px'});
-    ['comer','menu','eventos','galeria','visitanos'].forEach(function(id){
-      var s = document.getElementById(id); if (s) spy.observe(s);
-    });
-  }
 </script>
 </head>
 <body>
@@ -229,7 +183,6 @@ nav.menu a.activo{color:var(--texto)}
     </a>
     <nav class="menu">
       <a href="#comer" data-es="Comida" data-en="Food">Comida</a>
-    <a href="#menu" data-es="La carta" data-en="La Carta">La carta</a>
       <a href="#menu" data-es="La carta" data-en="La Carta">La carta</a>
       <a href="#eventos" data-es="Eventos" data-en="Events">Eventos</a>
       <a href="#galeria" data-es="Galería" data-en="Gallery">Galería</a>
@@ -243,6 +196,7 @@ nav.menu a.activo{color:var(--texto)}
   </div>
   <nav class="panel-menu" id="panel-menu" aria-label="Menú">
     <a href="#comer" data-es="Comida" data-en="Food">Comida</a>
+    <a href="#menu" data-es="La carta" data-en="La Carta">La carta</a>
     <a href="#eventos" data-es="Eventos" data-en="Events">Eventos</a>
     <a href="#galeria" data-es="Galería" data-en="Gallery">Galería</a>
     <a href="#visitanos" data-es="Visítanos" data-en="Visit us">Visítanos</a>
@@ -535,6 +489,53 @@ function setLang(l){
 }
 function toggleLang(){ setLang(lang==='es'?'en':'es'); }
 try{ var s=localStorage.getItem('lang809'); if(s==='en'){ setLang('en'); } }catch(e){}
+
+  // Entrada por scroll: solo si el navegador lo soporta y no hay movimiento reducido
+  if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.documentElement.classList.add('anim');
+    var obs = new IntersectionObserver(function(es){
+      es.forEach(function(e){ if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+    }, {threshold: 0.12});
+    document.querySelectorAll('.revela').forEach(function(el){ obs.observe(el); });
+  }
+
+  // Barra de menú: sombra al flotar, se oculta al bajar y vuelve al subir; panel móvil y scrollspy
+  var cab = document.querySelector('header');
+  var btnMenu = document.getElementById('btn-menu');
+  var ultimoY = window.scrollY;
+  function cerrarPanel(){ cab.classList.remove('abierto'); if (btnMenu) btnMenu.setAttribute('aria-expanded','false'); }
+  if (btnMenu) {
+    btnMenu.addEventListener('click', function(){
+      var abierto = cab.classList.toggle('abierto');
+      btnMenu.setAttribute('aria-expanded', abierto ? 'true' : 'false');
+    });
+    document.querySelectorAll('.panel-menu a').forEach(function(a){ a.addEventListener('click', cerrarPanel); });
+    document.addEventListener('keydown', function(e){ if (e.key === 'Escape') cerrarPanel(); });
+  }
+  var reduceMenu = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  window.addEventListener('scroll', function(){
+    var y = window.scrollY;
+    cab.classList.toggle('flotante', y > 8);
+    if (!reduceMenu && !cab.classList.contains('abierto')) {
+      if (y > 260 && y > ultimoY + 4) cab.classList.add('oculta');
+      else if (y < ultimoY - 4 || y <= 260) cab.classList.remove('oculta');
+    }
+    ultimoY = y;
+  }, {passive: true});
+  if ('IntersectionObserver' in window) {
+    var spy = new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if (e.isIntersecting) {
+          document.querySelectorAll('header a[href^="#"]').forEach(function(a){
+            a.classList.toggle('activo', a.getAttribute('href') === '#' + e.target.id);
+          });
+        }
+      });
+    }, {rootMargin: '-40% 0px -55% 0px'});
+    ['comer','menu','eventos','galeria','visitanos'].forEach(function(id){
+      var s = document.getElementById(id); if (s) spy.observe(s);
+    });
+  }
 </script>
 </body>
 </html>
