@@ -110,6 +110,10 @@ footer .legales a{color:var(--suave);letter-spacing:2px;text-transform:uppercase
 .pm-nav a{flex:0 0 auto;color:var(--suave);text-decoration:none;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;padding:8px 13px;border:1px solid var(--linea);border-radius:999px}
 .pm-nav a.activo{background:var(--acento);color:#14100A;border-color:var(--acento);font-weight:600}
 .pm-contenido .contenedor{padding-top:28px;padding-bottom:56px}
+@media (max-width:860px){
+  .pm-nav{flex-direction:column;overflow-x:visible;gap:6px}
+  .pm-nav a{text-align:center;padding:10px 13px}
+}
 .pantalla-menu.fichas .menu-cat{display:none}
 .pantalla-menu.fichas .menu-cat.seleccionada{display:block}
 @media (prefers-reduced-motion: reduce){.pantalla-menu{transition:none}.pm-nav{transition:none}}
