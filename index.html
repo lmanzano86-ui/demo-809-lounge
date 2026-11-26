@@ -644,12 +644,13 @@ try{ var s=localStorage.getItem('lang809'); if(s==='en'){ setLang('en'); } }catc
     });
     document.getElementById('pm-cerrar').addEventListener('click', cerrarMenuRest);
     document.addEventListener('keydown', function(e){ if (e.key === 'Escape') cerrarMenuRest(); });
-    var pmUltimoY = 0, pmTick = false;
+    var pmUltimoY = 0, pmTick = false, pmSalto = false, pmSaltoT = null;
     pmCuerpo.addEventListener('scroll', function(){
       if (pmTick) return; pmTick = true;
       requestAnimationFrame(function(){
         pmTick = false;
         var y = pmCuerpo.scrollTop;
+        if (pmSalto) { pmUltimoY = y; return; }
         if (y > pmUltimoY + 4 && y > 140) pmNav.classList.add('oculta');
         else if (y < pmUltimoY - 4) pmNav.classList.remove('oculta');
         pmUltimoY = y;
@@ -659,7 +660,13 @@ try{ var s=localStorage.getItem('lang809'); if(s==='en'){ setLang('en'); } }catc
       a.addEventListener('click', function(e){
         e.preventDefault();
         var destino = document.querySelector(a.getAttribute('href'));
-        if (destino) pmCuerpo.scrollTo({top: Math.max(destino.offsetTop - 8, 0), behavior: 'smooth'});
+        if (destino) {
+          pmSalto = true;
+          pmNav.classList.remove('oculta');
+          pmCuerpo.scrollTo({top: Math.max(destino.offsetTop - 8, 0), behavior: 'smooth'});
+          clearTimeout(pmSaltoT);
+          pmSaltoT = setTimeout(function(){ pmSalto = false; }, 900);
+        }
       });
     });
     if ('IntersectionObserver' in window) {
