@@ -234,6 +234,28 @@ body{background:radial-gradient(1100px 520px at 50% -8%, rgba(212,175,55,.08), r
 .marca-num.mini{font-size:26px;padding:3px 8px 5px}
 .pie-nombre{font-family:var(--fuente-titulo);font-size:22px;letter-spacing:2px}
 @media (max-width:640px){#comer .enlace{display:block;width:max-content;margin-top:16px}}
+
+/* Carrusel de galería: sin JavaScript la galería queda en rejilla; con JS, una foto a la vez con flechas, puntos y deslizamiento */
+.galeria{display:block}
+.car-pista{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+.car-btn,.car-puntos{display:none}
+.carrusel-on .car-ventana{position:relative;overflow:hidden}
+.carrusel-on .car-pista{display:flex;gap:0;transition:transform .45s cubic-bezier(0.22,1,0.36,1)}
+.carrusel-on .car-pista figure{flex:0 0 100%}
+.carrusel-on .car-pista img{height:520px}
+.carrusel-on .car-btn{display:flex;align-items:center;justify-content:center;position:absolute;top:245px;width:46px;height:46px;border-radius:50%;border:1px solid var(--linea);background:var(--velo);color:var(--oro-claro);font-size:26px;line-height:1;cursor:pointer;z-index:3;padding:0}
+.carrusel-on .car-prev{left:14px}
+.carrusel-on .car-next{right:14px}
+.carrusel-on .car-btn:hover{border-color:var(--acento);color:var(--acento)}
+.carrusel-on .car-puntos{display:flex;justify-content:center;gap:12px;margin-top:16px}
+.car-puntos button{width:11px;height:11px;border-radius:50%;border:1px solid var(--linea);background:none;cursor:pointer;padding:0}
+.car-puntos button.activo{background:var(--acento);border-color:var(--acento)}
+@media (max-width:860px){
+  .car-pista{grid-template-columns:minmax(0,1fr)}
+  .carrusel-on .car-pista img{height:300px}
+  .carrusel-on .car-btn{top:138px;width:40px;height:40px;font-size:22px}
+}
+@media (prefers-reduced-motion: reduce){.carrusel-on .car-pista{transition:none}}
 </style>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"BarOrPub","name":"809 Lounge Restaurant & Grill","telephone":"+1-813-284-5300","address":{"@type":"PostalAddress","streetAddress":"3710 W Waters Ave","addressLocality":"Tampa","addressRegion":"FL","postalCode":"33614","addressCountry":"US"},"priceRange":"$$","url":"https://lmanzano86-ui.github.io/demo-809-lounge/"}
@@ -522,11 +544,18 @@ body{background:radial-gradient(1100px 520px at 50% -8%, rgba(212,175,55,.08), r
   <div class="contenedor">
     <h2 data-es="Galería real del 809" data-en="Real 809 gallery">Galería real del 809</h2>
     <p class="sub" data-es="Fotos reales del local publicadas en línea: sin montajes, así se ve por dentro." data-en="Real photos of the venue published online: no staging, this is how it looks inside.">Fotos reales del local publicadas en línea: sin montajes, así se ve por dentro.</p>
-    <div class="galeria">
+    <div class="galeria" id="galeria-grid">
+      <div class="car-ventana">
+        <div class="car-pista">
       <figure class="revela"><img src="imgs/foto1.webp" width="900" height="1200" loading="lazy" alt="Exterior del 809 en Waters Ave al atardecer, con palmeras y su letrero luminoso"><figcaption><strong data-es="La llegada" data-en="The arrival">La llegada</strong> · <span data-es="su fachada en Waters Ave" data-en="its facade on Waters Ave">su fachada en Waters Ave</span></figcaption></figure>
       <figure class="revela"><img src="imgs/billar.webp" width="1200" height="675" loading="lazy" alt="Mesas de billar de paño rojo dentro del 809 Lounge"><figcaption><strong data-es="El billar" data-en="Pool tables">El billar</strong> · <span data-es="mesas de paño rojo para jugar entre amigos" data-en="red-felt tables to play with friends">mesas de paño rojo para jugar entre amigos</span></figcaption></figure>
       <figure class="revela"><img src="imgs/barra.webp" style="object-position:center 22%" width="904" height="1200" loading="lazy" alt="Cerveza dominicana República servida en la barra del 809"><figcaption><strong data-es="La barra" data-en="The bar">La barra</strong> · <span data-es="cerveza dominicana bien fría" data-en="ice-cold Dominican beer">cerveza dominicana bien fría</span></figcaption></figure>
       <figure class="revela"><img src="imgs/foto2.webp" width="1200" height="675" loading="lazy" alt="Noche de fiesta llena en el 809, con luces de colores y música en vivo"><figcaption><strong data-es="La fiesta" data-en="The party">La fiesta</strong> · <span data-es="así se llenan sus noches de evento" data-en="this is how its event nights fill up">así se llenan sus noches de evento</span></figcaption></figure>
+        </div>
+        <button class="car-btn car-prev" type="button" aria-label="Foto anterior">‹</button>
+        <button class="car-btn car-next" type="button" aria-label="Foto siguiente">›</button>
+      </div>
+      <div class="car-puntos" aria-label="Elegir foto"></div>
     </div>
   </div>
 </section>
@@ -728,6 +757,48 @@ try{ var s=localStorage.getItem('lang809'); if(s==='en'){ setLang('en'); } }catc
       });
     });
     pmSeleccionar('cat-1');
+  }
+
+  // Carrusel de la galería: una foto a la vez, con flechas, puntos, teclado y deslizamiento
+  var galeria809 = document.getElementById('galeria-grid');
+  if (galeria809) {
+    var carPista = galeria809.querySelector('.car-pista');
+    var carFotos = carPista.querySelectorAll('figure');
+    var carPuntos = galeria809.querySelector('.car-puntos');
+    var carVentana = galeria809.querySelector('.car-ventana');
+    var carIdx = 0;
+    galeria809.classList.add('carrusel-on');
+    carVentana.setAttribute('tabindex', '0');
+    function carIrA(i){
+      carIdx = (i + carFotos.length) % carFotos.length;
+      carPista.style.transform = 'translateX(' + (-carIdx * 100) + '%)';
+      carPuntos.querySelectorAll('button').forEach(function(b, j){
+        b.classList.toggle('activo', j === carIdx);
+      });
+    }
+    carFotos.forEach(function(f, j){
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.setAttribute('aria-label', 'Ver la foto ' + (j + 1));
+      b.addEventListener('click', function(){ carIrA(j); });
+      carPuntos.appendChild(b);
+    });
+    galeria809.querySelector('.car-prev').addEventListener('click', function(){ carIrA(carIdx - 1); });
+    galeria809.querySelector('.car-next').addEventListener('click', function(){ carIrA(carIdx + 1); });
+    carVentana.addEventListener('keydown', function(e){
+      if (e.key === 'ArrowLeft') carIrA(carIdx - 1);
+      if (e.key === 'ArrowRight') carIrA(carIdx + 1);
+    });
+    var carTx = null;
+    carVentana.addEventListener('touchstart', function(e){ carTx = e.changedTouches[0].clientX; }, {passive: true});
+    carVentana.addEventListener('touchend', function(e){
+      if (carTx === null) return;
+      var dx = e.changedTouches[0].clientX - carTx;
+      if (dx < -40) carIrA(carIdx + 1);
+      else if (dx > 40) carIrA(carIdx - 1);
+      carTx = null;
+    }, {passive: true});
+    carIrA(0);
   }
 </script>
 </body>
